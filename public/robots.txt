@@ -1,0 +1,21 @@
+# robots.txt for https://sendexa.co
+
+# Global rules for all bots
+User-agent: *
+Disallow: /dashboard/*
+Disallow: /auth/*
+Disallow: /api/*
+Allow: /
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Disallow: /private/*
+Allow: /
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Disallow: /private/*
+Allow: /
+
+# Sitemap location
+Sitemap: https://sendexa.co/sitemap.xml
