@@ -85,7 +85,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdn.sendexa.co" />
       </head>
       <body className={`${outfit.variable} font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-50`}>
-        <GoogleTagManager gtmId="G-FLDGHERSB9X" />
+        <GoogleTagManager gtmId="G-FLDGHERSB9" />
         <ThemeProvider 
           attribute="class" 
           defaultTheme="light"
