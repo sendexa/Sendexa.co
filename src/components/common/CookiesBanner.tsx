@@ -87,7 +87,7 @@ export const CookiesBanner = () => {
 
               <div className="mt-3 text-center">
                 <Link 
-                  href="/legal/cookie-policy" 
+                  href="https://discover.sendexa.co/legal/cookie-policy" 
                   className="inline-flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Cookie Policy <ChevronRight className="h-3 w-3 ml-1" />
