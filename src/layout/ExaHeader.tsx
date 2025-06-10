@@ -37,6 +37,10 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
   {
+    name: "Home",
+    href: "/",
+  },
+  {
     name: "Products",
     href: "#",
     subLinks: [
@@ -107,7 +111,7 @@ const navItems = [
     subLinks: [
       {
         name: "Custom Software & Portals",
-        href: "https://software.sendexa.co/",
+        href: "https://discover.sendexa.co/software-development/",
         description:
           "Get web and mobile systems tailored for schools, fintech, logistics, and more.",
         icon: <CodeXml className="w-5 h-5" />,
@@ -117,7 +121,7 @@ const navItems = [
       },
       {
         name: "Reseller Services",
-        href: "https://resellers.sendexa.co/",
+        href: "https://discover.sendexa.co/reseller/",
         description:
           "Earn revenue by reselling Sendexa’s messaging, email, and OTP services with your own branding.",
         icon: <Users className="w-5 h-5" />,
@@ -209,7 +213,7 @@ const navItems = [
       },
       {
         name: "FAQs & Help Center",
-        href: "https://help.sendexa.co/",
+        href: "https://discover.sendexa.co/faqs/",
         description:
           "Find answers to frequently asked questions about our products and services.",
         icon: <HelpCircle className="w-5 h-5" />,
@@ -246,7 +250,7 @@ const navItems = [
       },
       {
         name: "Careers",
-        href: "https://careers.sendexa.co/",
+        href: "https://discover.sendexa.co/careers/",
         description:
           "Join us in building Africa’s most reliable messaging and fintech backbone.",
         icon: <Briefcase className="w-5 h-5" />,
@@ -410,7 +414,7 @@ export function ExaHeader() {
                                   className={`block p-3 rounded-lg transition-all ${
                                     subLink.cta
                                       ? // ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500"
-                                        "bg-gradient-to-r from-[#a08721] to-purple-600 text-white hover:from-[#a08721]/90 hover:to-purple-500"
+                                        "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white hover:from-[#a08721]/90 hover:to-purple-500"
                                       : pathname === subLink.href
                                       ? "bg-blue-50 dark:bg-gray-800"
                                       : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
@@ -605,7 +609,7 @@ export function ExaHeader() {
                                     href={subLink.href}
                                     className={`block p-3 rounded-lg transition-all ${
                                       subLink.cta
-                                        ? "bg-gradient-to-r from-[#a08721] to-purple-600 text-white"
+                                        ? "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white"
                                         : pathname === subLink.href
                                         ? "bg-blue-50 dark:bg-gray-800"
                                         : "hover:bg-gray-100 dark:hover:bg-gray-800"

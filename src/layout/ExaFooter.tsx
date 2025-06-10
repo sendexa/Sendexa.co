@@ -7,9 +7,9 @@ import Image from "next/image";
 import {
   FaFacebook,
   FaWhatsapp,
-  // FaGithub,
   FaYoutube,
   FaLinkedin,
+  FaGithub,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -43,7 +43,7 @@ export const ExaFooter = () => {
       links: [
         { name: "Connect to APIs", href: "https://developers.sendexa.co/" },
         { name: "Our Partners", href: "https://discover.sendexa.co/partners" },
-        { name: "FAQs & Help", href: "/faqs" },
+        { name: "FAQs & Help", href: "https://discover.sendexa.co/faqs" },
         { name: "Tutorial Videos", href: "https://youtube.com/sendexa" },
         { name: "System Status", href: "/status" },
       ],
@@ -79,7 +79,7 @@ export const ExaFooter = () => {
     {
       name: "Facebook",
       icon: FaFacebook,
-      href: "https://facebook.com/SendexaAfrica",
+      href: "https://facebook.com/Sendexa",
     },
     { name: "Twitter", icon: FaXTwitter, href: "https://x.com/sendexaHQ" },
     {
@@ -90,7 +90,7 @@ export const ExaFooter = () => {
     { name: "YouTube", icon: FaYoutube, href: "https://youtube.com/sendexa" },
     { name: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/+233555539152" },
 
-    // { name: "GitHub", icon: FaGithub, href: "https://github.com/sendexa" },
+    { name: "GitHub", icon: FaGithub, href: "https://github.com/sendexa" },
   ];
 
   return (
@@ -154,7 +154,7 @@ export const ExaFooter = () => {
                     whileTap={{ scale: 0.9 }}
                     className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 shadow-sm hover:shadow-blue-500/20 transition-all"
                   >
-                    <social.icon className="h-5 w-5 text-gray-300 hover:text-[#1a3cb8] transition-colors" />
+                    <social.icon className="h-5 w-5 text-gray-300 hover:text-[#a18722] transition-colors" />
                   </motion.a>
                 ))}
               </motion.div>
@@ -180,10 +180,10 @@ export const ExaFooter = () => {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-sm text-gray-400 hover:text-[#1a3cb8] transition-colors flex items-center group"
+                          className="text-sm text-gray-400 hover:text-[#a18722] transition-colors flex items-center group"
                         >
                           <motion.span
-                            whileHover={{ x: 5, color: "#1a3cb8" }}
+                            whileHover={{ x: 5, color: "#a18722" }}
                             transition={{ type: "spring", stiffness: 300 }}
                             className="inline-flex items-center gap-1"
                           >
@@ -191,7 +191,7 @@ export const ExaFooter = () => {
                             <motion.span
                               initial={{ opacity: 0, width: 0 }}
                               whileHover={{ opacity: 1, width: "0.5rem" }}
-                              className="block h-px bg-blue-text-[#1a3cb8]"
+                              className="block h-px bg-blue-text-[#a18722]"
                             />
                           </motion.span>
                         </Link>
@@ -230,7 +230,7 @@ export const ExaFooter = () => {
               . All rights reserved.
             </motion.p>
 
-            {/* Built with Love in Ghana */}
+            {/* Built with Love by Xtottel Ltd */}
             <motion.div
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -241,9 +241,9 @@ export const ExaFooter = () => {
               className="text-sm text-gray-500 transition-all group"
             >
               <p className="transition-all duration-300">
-                Made with <span className="text-red-500">❤️</span> in{" "}
+                Built with <span className="text-red-500"> 💚</span> by{" "}
                 <span className="font-medium text-yellow-600 group-hover:text-yellow-500 transition-colors duration-300">
-                  Volta Region, Ghana
+                  Xtottel Ltd
                 </span>
               </p>
             </motion.div>

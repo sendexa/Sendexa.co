@@ -1,8 +1,8 @@
 "use client";
-import { motion } from 'framer-motion';
-import { ComparisonTable } from '@/components/payments/shared/ComparisonTable';
-import { Check, X, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { ComparisonTable } from "@/components/payments/shared/ComparisonTable";
+import { Check, X, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 const plans = [
   {
@@ -13,11 +13,11 @@ const plans = [
       "Monthly volume": "Up to $50K",
       "Payment methods": "All included",
       "Fraud prevention": "Basic",
-      "Settlement": "T+2",
-      "Support": "Email",
-      "Chargeback protection": false
+      Settlement: "T+2",
+      Support: "Email",
+      "Chargeback protection": false,
     },
-    cta: "Get Started"
+    cta: "Get Started",
   },
   {
     name: "Growth",
@@ -27,12 +27,12 @@ const plans = [
       "Monthly volume": "Up to $500K",
       "Payment methods": "All included",
       "Fraud prevention": "Advanced",
-      "Settlement": "T+1",
-      "Support": "24/5 Chat",
-      "Chargeback protection": true
+      Settlement: "T+1",
+      Support: "24/5 Chat",
+      "Chargeback protection": true,
     },
     cta: "Start Free Trial",
-    popular: true
+    popular: true,
   },
   {
     name: "Enterprise",
@@ -42,12 +42,12 @@ const plans = [
       "Monthly volume": "Unlimited",
       "Payment methods": "All included + local acquiring",
       "Fraud prevention": "Premium AI",
-      "Settlement": "Same day",
-      "Support": "24/7 Dedicated",
-      "Chargeback protection": true
+      Settlement: "Same day",
+      Support: "24/7 Dedicated",
+      "Chargeback protection": true,
     },
-    cta: "Contact Sales"
-  }
+    cta: "Contact Sales",
+  },
 ];
 
 const competitors = [
@@ -58,8 +58,8 @@ const competitors = [
       "Local payment methods": "Limited",
       "FX rates": "2% markup",
       "Settlement speed": "T+2 standard",
-      "Fraud prevention": "Extra cost"
-    }
+      "Fraud prevention": "Extra cost",
+    },
   },
   {
     name: "PayPal",
@@ -68,9 +68,9 @@ const competitors = [
       "Local payment methods": "Very limited",
       "FX rates": "4% markup",
       "Settlement speed": "T+3 standard",
-      "Fraud prevention": "Basic"
-    }
-  }
+      "Fraud prevention": "Basic",
+    },
+  },
 ];
 
 export const Pricing = () => {
@@ -102,7 +102,7 @@ export const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-xl border p-8 ${plan.popular ? 'border-blue-400 bg-gray-900' : 'border-gray-800 bg-gray-900/50'}`}
+              className={`relative rounded-xl border p-8 ${plan.popular ? "border-blue-400 bg-gray-900" : "border-gray-800 bg-gray-900/50"}`}
               whileHover={{ y: -5 }}
             >
               {plan.popular && (
@@ -110,21 +110,23 @@ export const Pricing = () => {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-end mb-2">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="text-gray-400 ml-1">per transaction</span>}
+                  {plan.price !== "Custom" && (
+                    <span className="text-gray-400 ml-1">per transaction</span>
+                  )}
                 </div>
                 <p className="text-gray-400">{plan.description}</p>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 {Object.entries(plan.features).map(([key, value]) => (
                   <li key={key} className="flex items-center justify-between">
                     <span className="text-gray-400">{key}</span>
-                    {typeof value === 'boolean' ? (
+                    {typeof value === "boolean" ? (
                       value ? (
                         <Check className="w-5 h-5 text-blue-400" />
                       ) : (
@@ -136,9 +138,10 @@ export const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              
+
               <button
-                className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-700'}`}
+                onClick={() => window.open(`https://bo.sendexa.co`)}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-800 hover:bg-gray-700"}`}
               >
                 {plan.cta}
               </button>
@@ -153,11 +156,13 @@ export const Pricing = () => {
           viewport={{ once: true }}
           className="mt-16 max-w-4xl mx-auto"
         >
-          <button 
+          <button
             className="flex items-center justify-between w-full px-6 py-4 bg-gray-900/50 border border-gray-800 rounded-lg text-left"
             onClick={() => setShowComparison(!showComparison)}
           >
-            <span className="text-lg font-medium">How we compare to other payment providers</span>
+            <span className="text-lg font-medium">
+              How we compare to other payment providers
+            </span>
             {showComparison ? (
               <ChevronUp className="w-5 h-5 text-gray-400" />
             ) : (
@@ -168,11 +173,11 @@ export const Pricing = () => {
           {showComparison && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               transition={{ duration: 0.3 }}
               className="mt-4"
             >
-              <ComparisonTable 
+              <ComparisonTable
                 ourProduct="Our Payments API"
                 competitors={competitors}
                 theme="blue"
