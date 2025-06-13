@@ -102,6 +102,7 @@ const Pricing = () => {
               </ul>
               
               <button
+              onClick={() => window.open(`https://app.sendexa.co`)}
                 className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular ? 'bg-lime-600 hover:bg-lime-700' : 'bg-gray-800 hover:bg-gray-700'}`}
               >
                 {plan.cta}

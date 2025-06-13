@@ -5,14 +5,14 @@ import { Container } from '@/layout/Container';
 
 const Integrations = () => {
   const integrations = [
-    { name: "Node.js", logo: "/logos/nodejs.svg" },
-    { name: "Python", logo: "/logos/python.svg" },
-    { name: "Ruby", logo: "/logos/ruby.svg" },
-    { name: "Java", logo: "/logos/java.svg" },
-    { name: "PHP", logo: "/logos/php.svg" },
-    { name: "Go", logo: "/logos/go.svg" },
-    { name: ".NET", logo: "/logos/dotnet.svg" },
-    { name: "React", logo: "/logos/react.svg" },
+    { name: "Node.js", logo: "/svgs/nodejs.svg" },
+    { name: "Python", logo: "/svgs/python.svg" },
+    { name: "Ruby", logo: "/svgs/ruby.svg" },
+    { name: "Java", logo: "/svgs/java.svg" },
+    { name: "PHP", logo: "/svgs/php.svg" },
+    { name: "Go", logo: "/svgs/go.svg" },
+    { name: ".NET", logo: "/svgs/dot-net.svg" },
+    { name: "React", logo: "/svgs/react.svg" },
   ];
 
   return (
@@ -58,7 +58,7 @@ const Integrations = () => {
           ))}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -68,7 +68,7 @@ const Integrations = () => {
           <button className="px-8 py-3 bg-yellow-600 hover:bg-yellow-700 rounded-lg font-medium transition-colors text-lg shadow-lg hover:shadow-yellow-600/20">
             View All SDKs & Documentation
           </button>
-        </motion.div>
+        </motion.div> */}
         </Container>
       </div>
     </section>

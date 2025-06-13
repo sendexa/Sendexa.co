@@ -68,13 +68,19 @@ const PaymentsHero = () => {
               transition={{ duration: 0.6, delay: 1 }}
               className="flex flex-wrap gap-3 md:gap-4"
             >
-              <button className="px-6 py-3 md:px-8 md:py-4 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-blue-600/20">
+              <button 
+              onClick={() => window.location.href = 'https://bo.sendexa.co/signup'}
+              className="px-6 py-3 md:px-8 md:py-4 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-blue-600/20">
                 Get Started
               </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 border border-blue-400 text-blue-100 hover:bg-blue-900/50 rounded-lg font-medium transition-colors text-base md:text-lg">
+              <button
+              onClick={() => window.location.href = 'https://developers.sendexa.co/payments'}
+               className="px-6 py-3 md:px-8 md:py-4 border border-blue-400 text-blue-100 hover:bg-blue-900/50 rounded-lg font-medium transition-colors text-base md:text-lg">
                 View Documentation
               </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 text-blue-100 hover:text-white hover:bg-blue-900/30 rounded-lg font-medium transition-colors text-base md:text-lg">
+              <button 
+              onClick={() => window.location.href = '/case-studies'}
+              className="px-6 py-3 md:px-8 md:py-4 text-blue-100 hover:text-white hover:bg-blue-900/30 rounded-lg font-medium transition-colors text-base md:text-lg">
                 Case Studies →
               </button>
             </motion.div>

@@ -1,15 +1,19 @@
 "use client";
-import { motion } from 'framer-motion';
-import { LockKeyhole, Zap, Shield, Clock, CheckCircle } from 'lucide-react';
-import Image from 'next/image';
-import { Container } from '@/layout/Container';
+import { motion } from "framer-motion";
+import { LockKeyhole, Zap, Shield, Clock, CheckCircle } from "lucide-react";
+import Image from "next/image";
+import { Container } from "@/layout/Container";
+import Link from "next/link";
 
 const ProductHero = () => {
   const features = [
     { icon: <Zap className="w-4 h-4 mr-2" />, text: "Instant delivery" },
     { icon: <Shield className="w-4 h-4 mr-2" />, text: "Bank-grade security" },
     { icon: <Clock className="w-4 h-4 mr-2" />, text: "30-second expiry" },
-    { icon: <CheckCircle className="w-4 h-4 mr-2" />, text: "99.9% reliability" },
+    {
+      icon: <CheckCircle className="w-4 h-4 mr-2" />,
+      text: "99.9% reliability",
+    },
   ];
 
   return (
@@ -26,32 +30,34 @@ const ProductHero = () => {
               <LockKeyhole className="w-5 h-5 mr-2" />
               <span>Authentication Security</span>
             </motion.div>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             >
-              Secure <span className="text-indigo-400">OTP API</span> for User Verification
+              Secure <span className="text-indigo-400">OTP API</span> for User
+              Verification
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg md:text-xl text-indigo-200 mb-8 md:mb-10 max-w-2xl"
             >
-              Protect your app with real-time OTP delivery via SMS, Email or WhatsApp. Bank-level security with 30-second expiry.
+              Protect your app with real-time OTP delivery via SMS, Email or
+              WhatsApp. Bank-level security with 30-second expiry.
             </motion.p>
-            
+
             <div className="flex flex-wrap gap-3 mb-8 md:mb-10">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + (index * 0.1) }}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                   className="flex items-center text-xs md:text-sm bg-indigo-900/30 text-indigo-300 px-3 md:px-4 py-1.5 md:py-2 rounded-full"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -60,25 +66,34 @@ const ProductHero = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
               className="flex flex-wrap gap-3 md:gap-4"
             >
-              <button className="px-6 py-3 md:px-8 md:py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-indigo-600/20">
+              <Link
+                href="https://developers.sendexa.co/docs/api-keys"
+                className="px-6 py-3 md:px-8 md:py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-indigo-600/20"
+              >
                 Get API Keys
-              </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 border border-indigo-400 text-indigo-100 hover:bg-indigo-900/50 rounded-lg font-medium transition-colors text-base md:text-lg">
+              </Link>
+              <Link
+                href="https://developers.sendexa.co"
+                className="px-6 py-3 md:px-8 md:py-4 border border-indigo-400 text-indigo-100 hover:bg-indigo-900/50 rounded-lg font-medium transition-colors text-base md:text-lg"
+              >
                 View Documentation
-              </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 text-indigo-100 hover:text-white hover:bg-indigo-900/30 rounded-lg font-medium transition-colors text-base md:text-lg">
+              </Link>
+              <Link
+                href="/products/otp/#pricing"
+                className="px-6 py-3 md:px-8 md:py-4 text-indigo-100 hover:text-white hover:bg-indigo-900/30 rounded-lg font-medium transition-colors text-base md:text-lg"
+              >
                 Pricing →
-              </button>
+              </Link>
             </motion.div>
           </div>
-          
+
           <div className="md:w-1/2 relative order-1 md:order-2 mb-10 md:mb-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -101,43 +116,43 @@ const ProductHero = () => {
           </div>
         </div>
       </Container>
-      
+
       {/* Enhanced background elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-        <motion.div 
+        <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-indigo-800/20 filter blur-3xl"
           animate={{
             scale: [1, 1.1, 1],
-            opacity: [0.8, 1, 0.8]
+            opacity: [0.8, 1, 0.8],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-indigo-800/20 filter blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.7, 0.9, 0.7]
+            opacity: [0.7, 0.9, 0.7],
           }}
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
-        <motion.div 
+        <motion.div
           className="absolute top-1/3 right-1/5 w-40 h-40 rounded-full bg-purple-600/10 filter blur-2xl"
           animate={{
             x: [0, 20, 0],
-            y: [0, -20, 0]
+            y: [0, -20, 0],
           }}
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         {/* Security pattern background */}

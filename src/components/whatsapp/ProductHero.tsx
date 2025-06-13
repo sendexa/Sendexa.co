@@ -68,13 +68,18 @@ const ProductHero = () => {
               transition={{ duration: 0.6, delay: 1 }}
               className="flex flex-wrap gap-3 md:gap-4"
             >
-              <button className="px-6 py-3 md:px-8 md:py-4 bg-lime-600 hover:bg-lime-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-lime-600/20">
+              <button 
+                onClick={() => window.open('https://chat.sendexa.co', '_blank')}
+              className="px-6 py-3 md:px-8 md:py-4 bg-lime-600 hover:bg-lime-700 rounded-lg font-medium transition-colors text-base md:text-lg shadow-lg hover:shadow-lime-600/20">
                 Get Started
               </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 border border-lime-400 text-lime-100 hover:bg-lime-900/50 rounded-lg font-medium transition-colors text-base md:text-lg">
+              {/* <button 
+              className="px-6 py-3 md:px-8 md:py-4 border border-lime-400 text-lime-100 hover:bg-lime-900/50 rounded-lg font-medium transition-colors text-base md:text-lg">
                 View Documentation
-              </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 text-lime-100 hover:text-white hover:bg-lime-900/30 rounded-lg font-medium transition-colors text-base md:text-lg">
+              </button> */}
+              <button
+                onClick={() => window.open('https://sendexa.co/case-studies', '_blank')}
+               className="px-6 py-3 md:px-8 md:py-4 text-lime-100 hover:text-white hover:bg-lime-900/30 rounded-lg font-medium transition-colors text-base md:text-lg">
                 Case Studies →
               </button>
             </motion.div>

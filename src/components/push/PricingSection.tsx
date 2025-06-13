@@ -1,6 +1,6 @@
 "use client";
-import { motion } from 'framer-motion';
-import { Check, Zap, Star } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Check, Zap, Star } from "lucide-react";
 
 const pricingPlans = [
   {
@@ -14,8 +14,8 @@ const pricingPlans = [
       "Basic analytics",
       "Email support",
       "3 regions",
-      "Standard delivery"
-    ]
+      "Standard delivery",
+    ],
   },
   {
     name: "Growth",
@@ -30,8 +30,8 @@ const pricingPlans = [
       "6 regions",
       "Optimal Timing AI",
       "Precision targeting",
-      "A/B testing"
-    ]
+      "A/B testing",
+    ],
   },
   {
     name: "Enterprise",
@@ -47,16 +47,16 @@ const pricingPlans = [
       "Advanced AI optimization",
       "SOC 2 compliance",
       "Custom IPs",
-      "Security review"
-    ]
-  }
+      "Security review",
+    ],
+  },
 ];
 
 export const PricingSection = () => {
   return (
     <section className="py-20 bg-gray-950">
       <div className="container px-4 mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -67,7 +67,8 @@ export const PricingSection = () => {
             <span className="text-purple-400">Simple, Predictable</span> Pricing
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Pay only for what you use with transparent per-notification pricing. Volume discounts available.
+            Pay only for what you use with transparent per-notification pricing.
+            Volume discounts available.
           </p>
         </motion.div>
 
@@ -79,7 +80,7 @@ export const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-xl border ${plan.popular ? 'border-purple-500/30 bg-gray-900/50' : 'border-gray-800 bg-gray-900/30'}`}
+              className={`relative rounded-xl border ${plan.popular ? "border-purple-500/30 bg-gray-900/50" : "border-gray-800 bg-gray-900/30"}`}
               whileHover={{ y: -5 }}
             >
               {plan.popular && (
@@ -92,10 +93,16 @@ export const PricingSection = () => {
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="text-4xl font-bold mb-2">{plan.price}</div>
                 {plan.price !== "Custom" && (
-                  <div className="text-sm text-gray-400 mb-6">then ${plan.name === "Starter" ? "0.80" : "0.65"}/1000 notifications</div>
+                  <div className="text-sm text-gray-400 mb-6">
+                    then ${plan.name === "Starter" ? "0.80" : "0.65"}/1000
+                    notifications
+                  </div>
                 )}
                 <p className="text-gray-400 mb-6">{plan.description}</p>
-                <button className={`w-full py-3 rounded-lg font-medium mb-8 transition-colors ${plan.popular ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 hover:bg-gray-700'}`}>
+                <button
+                  onClick={() => window.open(`https://app.sendexa.co`)}
+                  className={`w-full py-3 rounded-lg font-medium mb-8 transition-colors ${plan.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-gray-800 hover:bg-gray-700"}`}
+                >
                   {plan.cta}
                 </button>
                 <ul className="space-y-3">
@@ -125,7 +132,9 @@ export const PricingSection = () => {
                 Need Custom Solutions?
               </h3>
               <p className="text-gray-400">
-                Our team can design a custom notification infrastructure solution tailored to your specific requirements and volume needs.
+                Our team can design a custom notification infrastructure
+                solution tailored to your specific requirements and volume
+                needs.
               </p>
             </div>
             <div className="md:w-1/3 flex justify-center md:justify-end">

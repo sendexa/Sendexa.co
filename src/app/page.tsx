@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import HeroSlider from "@/components/home/HeroSlider";
+import Homepage from "@/components/home/Homepage";
+
 
 export const metadata: Metadata = {
   title: "Sendexa | Africa's Most Reliable Communication APIs – SMS, WhatsApp, Email & Payments",
@@ -91,7 +92,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
-      <HeroSlider />
+      <Homepage />
+      
+      {/* Add more sections as needed */}
     </div>
   );
 }

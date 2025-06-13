@@ -1,6 +1,7 @@
 "use client";
-import { motion } from 'framer-motion';
-import { Check, Zap } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Check, Zap } from "lucide-react";
+//import Link from "next/link";
 
 const Pricing = () => {
   const plans = [
@@ -15,9 +16,9 @@ const Pricing = () => {
         "All global carriers",
         "Basic analytics",
         "Email support",
-        "99.5% uptime"
+        "99.5% uptime",
       ],
-      cta: "Get Started"
+      cta: "Get Started",
     },
     {
       name: "Growth",
@@ -31,10 +32,10 @@ const Pricing = () => {
         "Priority routing",
         "Advanced analytics",
         "24/5 chat support",
-        "99.9% uptime SLA"
+        "99.9% uptime SLA",
       ],
       cta: "Start Free Trial",
-      popular: true
+      popular: true,
     },
     {
       name: "Enterprise",
@@ -50,10 +51,10 @@ const Pricing = () => {
         "Custom SLAs",
         "Phone support",
         "99.99% uptime SLA",
-        "HIPAA compliance"
+        "HIPAA compliance",
       ],
-      cta: "Contact Sales"
-    }
+      cta: "Contact Sales",
+    },
   ];
 
   return (
@@ -70,7 +71,8 @@ const Pricing = () => {
             Transparent <span className="text-yellow-400">Pricing</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Pay-as-you-go pricing with volume discounts. No hidden fees or surprise charges.
+            Pay-as-you-go pricing with volume discounts. No hidden fees or
+            surprise charges.
           </p>
         </motion.div>
 
@@ -82,7 +84,7 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-xl border p-8 ${plan.popular ? 'border-yellow-400 bg-gray-900' : 'border-gray-800 bg-gray-900/50'}`}
+              className={`relative rounded-xl border p-8 ${plan.popular ? "border-yellow-400 bg-gray-900" : "border-gray-800 bg-gray-900/50"}`}
               whileHover={{ y: -5 }}
             >
               {plan.popular && (
@@ -90,16 +92,18 @@ const Pricing = () => {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-end mb-2">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="text-gray-400 ml-1">/message</span>}
+                  {plan.price !== "Custom" && (
+                    <span className="text-gray-400 ml-1">/message</span>
+                  )}
                 </div>
                 <p className="text-gray-400">{plan.description}</p>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center">
@@ -108,9 +112,10 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              
+
               <button
-                className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-gray-800 hover:bg-gray-700'}`}
+                onClick={() => window.open(`https://app.sendexa.co`)}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular ? "bg-yellow-600 hover:bg-yellow-700" : "bg-gray-800 hover:bg-gray-700"}`}
               >
                 {plan.cta}
               </button>
@@ -132,7 +137,8 @@ const Pricing = () => {
             <div>
               <h3 className="text-xl font-bold mb-2">Need something custom?</h3>
               <p className="text-gray-400 mb-4">
-                We offer dedicated infrastructure, custom routing rules, and volume discounts for high-throughput applications.
+                We offer dedicated infrastructure, custom routing rules, and
+                volume discounts for high-throughput applications.
               </p>
               <button className="px-6 py-2 border border-yellow-400 text-yellow-100 hover:bg-yellow-900/50 rounded-lg font-medium transition-colors">
                 Contact Enterprise Team
