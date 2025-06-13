@@ -37,10 +37,10 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
-  {
-    name: "Home",
-    href: "/",
-  },
+  // {
+  //   name: "Home",
+  //   href: "/",
+  // },
   {
     name: "Products",
     href: "#",
