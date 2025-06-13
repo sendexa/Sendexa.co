@@ -32,6 +32,7 @@ import {
   MessageSquareDashed,
   Video,
   ShoppingCart,
+  Search,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -217,6 +218,14 @@ const navItems = [
           "bg-purple-100 text-purple-600 dark:bg-purple-900/50 dark:text-purple-300",
         cta: false,
       },
+       {
+        name: "Why was I debited?",
+        href: "https://lookup.sendexa.co/",
+        icon: <Search className="w-5 h-5" />,
+        description: "Find out why you were debited by Sendexa.",
+        color:
+          "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-200",
+      },
     ],
   },
 
@@ -226,7 +235,7 @@ const navItems = [
     subLinks: [
       {
         name: "About Us",
-        href: "https://discover.sendexa.co/about/",
+        href: "https://discover.sendexa.co/",
         description:
           "Discover how we're revolutionizing communication and payments across Ghana and beyond.",
         icon: <Building className="w-5 h-5" />,
@@ -530,7 +539,7 @@ export function ExaHeader() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 h-screen w-full max-w-md bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl shadow-xl z-50 border-l border-gray-200/80 dark:border-gray-800/80"
+              className="fixed top-0 right-0 h-screen w-10/11 max-w-md bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl shadow-xl z-50 border-l border-gray-200/80 dark:border-gray-800/80"
             >
               <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-800 h-20">
                 {/* Sendexa Logo */}
