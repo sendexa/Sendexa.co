@@ -46,7 +46,7 @@ export const CoreServicesGrid: React.FC = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848]"
+          className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848]"
         >
           Powerful Services. One Platform.
         </motion.h2>
@@ -73,20 +73,20 @@ export const CoreServicesGrid: React.FC = () => (
               scale: 1.04,
               transition: { duration: 0.2 }
             }}
-            className="group bg-gray-900/80 backdrop-blur-lg p-8 rounded-2xl border-2 border-[#a6953f]/30 hover:border-[#a6953f] shadow-xl transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden"
+            className="group bg-gray-900/80 backdrop-blur-lg p-8 rounded-2xl border-2 border-[#00c2c8]/30 hover:border-[#00c2c8] shadow-xl transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden"
           >
             {/* Icon container */}
             <motion.div 
-              className="mb-4 p-4 rounded-full bg-gradient-to-br from-[#a6953f]/30 to-[#d4b848]/20 text-[#a6953f] group-hover:shadow-[0_4px_24px_#a6953f] transition-all"
+              className="mb-4 p-4 rounded-full bg-gradient-to-br from-[#00c2c8]/30 to-[#d4b848]/20 text-[#00c2c8] group-hover:shadow-[0_4px_24px_#00c2c8] transition-all"
               whileHover={{
                 rotate: [0, 5, -5, 0],
                 transition: { duration: 0.6 }
               }}
             >
-              {React.cloneElement(service.icon, { className: "w-8 h-8 text-[#a6953f]" })}
+              {React.cloneElement(service.icon, { className: "w-8 h-8 text-[#00c2c8]" })}
             </motion.div>
 
-            <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] mb-2 group-hover:from-[#d4b848] group-hover:to-[#a6953f] transition-colors">
+            <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] mb-2 group-hover:from-[#d4b848] group-hover:to-[#00c2c8] transition-colors">
               {service.title}
             </h3>
             <p className="text-gray-100 text-base group-hover:text-white transition-colors">
@@ -95,10 +95,10 @@ export const CoreServicesGrid: React.FC = () => (
 
             {/* Animated underline */}
             <motion.div 
-              className="mt-6 w-8 h-1 bg-gradient-to-r from-[#a6953f]/40 to-[#d4b848]/40 rounded-full group-hover:from-[#a6953f] group-hover:to-[#d4b848] transition-all"
+              className="mt-6 w-8 h-1 bg-gradient-to-r from-[#00c2c8]/40 to-[#d4b848]/40 rounded-full group-hover:from-[#00c2c8] group-hover:to-[#d4b848] transition-all"
               whileHover={{
                 width: "80%",
-                backgroundColor: "#a6953f",
+                backgroundColor: "#00c2c8",
                 transition: { duration: 0.3 }
               }}
             />

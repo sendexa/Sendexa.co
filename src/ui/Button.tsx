@@ -35,9 +35,9 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
     primary:
-      "bg-[#16335c] text-white hover:opacity-90 disabled:opacity-50 dark:bg-[#16335c] dark:white-black",
+      "bg-[#00c2c8] text-white hover:opacity-90 disabled:opacity-50 dark:bg-[#00c2c8] dark:white-black",
     secondary:
-      "bg-[#a18722] text-white hover:opacity-90 disabled:opacity-50 dark:bg-[#a18722] dark:text-white",
+      "bg-[#3a0ca3] text-white hover:opacity-90 disabled:opacity-50 dark:bg-[#3a0ca3] dark:text-white",
     outline:
       "border border-[#e6e6e6] text-[#2b2b2b] hover:bg-[#f5f5f5] disabled:opacity-50 dark:border-[#ffffff1a] dark:text-white dark:hover:bg-[#4a4a6a]",
     destructive:

@@ -21,7 +21,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sendexa | Africa's Leading Communication APIs",
+    default: "Sendexa | Africa's Leading Communication & Payment APIs",
     template: "%s | Sendexa", // Adds Sendexa suffix to child page titles
   },
   description:
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
     other: {

@@ -5,7 +5,7 @@ import { MessageCircle, Mail, PhoneCall, CreditCard, ShieldCheck, Code2 } from "
 
 const features = [
   {
-    icon: <MessageCircle className="w-6 h-6 text-[#a6953f]" />,
+    icon: <MessageCircle className="w-6 h-6 text-[#00c2c8]" />,
     title: "SMS & Messaging",
     description: "Send bulk or transactional SMS with high deliverability.",
     image: "/images/services/118976.jpg"
@@ -17,7 +17,7 @@ const features = [
     image: "/images/services/118976.jpg"
   },
   {
-    icon: <PhoneCall className="w-6 h-6 text-[#a6953f]" />,
+    icon: <PhoneCall className="w-6 h-6 text-[#00c2c8]" />,
     title: "Voice Calls",
     description: "Automate voice notifications and interactive calls.",
     image: "/images/services/118976.jpg"
@@ -29,7 +29,7 @@ const features = [
     image: "/images/services/118976.jpg"
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-[#a6953f]" />,
+    icon: <ShieldCheck className="w-6 h-6 text-[#00c2c8]" />,
     title: "OTP & Security",
     description: "Verify users with OTPs and 2FA for peace of mind.",
     image: "/images/services/118976.jpg"
@@ -58,7 +58,7 @@ export const FeatureShowcase: React.FC = () => {
       <Container>
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">
-            Explore Sendexa&apos;s <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] font-extrabold">Unified Services</span>
+            Explore Sendexa&apos;s <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] font-extrabold">Unified Services</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             All your communication and payment needs, in one place.
@@ -75,11 +75,11 @@ export const FeatureShowcase: React.FC = () => {
                     className={`flex items-center w-full text-left px-4 py-3 rounded-lg transition-all focus:outline-none group shadow-md backdrop-blur-sm
                       ${
                         selected === idx
-                          ? "bg-gray-900/80 border-2 border-[#a6953f] shadow-xl text-gray-100"
-                          : "bg-gray-900/60 border border-[#a6953f]/30 hover:border-[#a6953f]/60 text-gray-300 hover:text-gray-100"
+                          ? "bg-gray-900/80 border-2 border-[#00c2c8] shadow-xl text-gray-100"
+                          : "bg-gray-900/60 border border-[#00c2c8]/30 hover:border-[#00c2c8]/60 text-gray-300 hover:text-gray-100"
                       }`}
                   >
-                    <span className={`mr-3 transition-all ${selected === idx ? "scale-125 drop-shadow-[0_2px_8px_#a6953f]" : "opacity-70 group-hover:opacity-100"}`}>
+                    <span className={`mr-3 transition-all ${selected === idx ? "scale-125 drop-shadow-[0_2px_8px_#00c2c8]" : "opacity-70 group-hover:opacity-100"}`}>
                       {feature.icon}
                     </span>
                     <span className="font-semibold text-base tracking-wide">{feature.title}</span>
@@ -97,7 +97,7 @@ export const FeatureShowcase: React.FC = () => {
                   src={feature.image}
                   alt={feature.title}
                   className={`absolute top-0 left-0 w-full h-full object-contain rounded-xl shadow-2xl transition-all duration-500 ${
-                    selected === idx ? "opacity-100 scale-100 z-10 drop-shadow-[0_10px_40px_#a6953f]" : "opacity-0 scale-95 z-0"
+                    selected === idx ? "opacity-100 scale-100 z-10 drop-shadow-[0_10px_40px_#00c2c8]" : "opacity-0 scale-95 z-0"
                   }`}
                   style={{ transitionProperty: "opacity, transform" }}
                 />

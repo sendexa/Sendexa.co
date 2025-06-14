@@ -98,7 +98,7 @@ export const TestimonialsCarousel: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-4">
-            What Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] font-extrabold">Customers Say</span>
+            What Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] font-extrabold">Customers Say</span>
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Trusted by businesses of all sizes across Africa
@@ -110,14 +110,14 @@ export const TestimonialsCarousel: React.FC = () => {
             <>
               <button 
                 onClick={handlePrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#a6953f]/80 to-[#d4b848]/80 shadow-lg flex items-center justify-center text-[#111D4F] hover:text-white hover:bg-gradient-to-br hover:from-[#a6953f] hover:to-[#d4b848] transition-all border-2 border-[#a6953f]"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#00c2c8]/80 to-[#d4b848]/80 shadow-lg flex items-center justify-center text-[#111D4F] hover:text-white hover:bg-gradient-to-br hover:from-[#00c2c8] hover:to-[#d4b848] transition-all border-2 border-[#00c2c8]"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft size={28} />
               </button>
               <button 
                 onClick={handleNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#a6953f]/80 to-[#d4b848]/80 shadow-lg flex items-center justify-center text-[#111D4F] hover:text-white hover:bg-gradient-to-br hover:from-[#a6953f] hover:to-[#d4b848] transition-all border-2 border-[#a6953f]"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#00c2c8]/80 to-[#d4b848]/80 shadow-lg flex items-center justify-center text-[#111D4F] hover:text-white hover:bg-gradient-to-br hover:from-[#00c2c8] hover:to-[#d4b848] transition-all border-2 border-[#00c2c8]"
                 aria-label="Next testimonials"
               >
                 <ChevronRight size={28} />
@@ -140,10 +140,10 @@ export const TestimonialsCarousel: React.FC = () => {
                   <motion.div
                     key={`${activeIndex}-${idx}`}
                     whileHover={{ y: -8, scale: 1.03 }}
-                    className="relative bg-gray-900 backdrop-blur-lg p-10 rounded-3xl border-2 border-[#a6953f]/30 hover:border-[#a6953f] shadow-2xl text-center flex flex-col items-center transition-all duration-300 h-full group"
+                    className="relative bg-gray-900 backdrop-blur-lg p-10 rounded-3xl border-2 border-[#00c2c8]/30 hover:border-[#00c2c8] shadow-2xl text-center flex flex-col items-center transition-all duration-300 h-full group"
                   >
-                    <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#a6953f] to-[#d4b848] rounded-t-3xl"></div>
-                    <div className="relative w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden border-4 border-[#a6953f] shadow-xl group-hover:shadow-[0_0_32px_#a6953f99] transition-all">
+                    <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#00c2c8] to-[#d4b848] rounded-t-3xl"></div>
+                    <div className="relative w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden border-4 border-[#00c2c8] shadow-xl group-hover:shadow-[0_0_32px_#a6953f99] transition-all">
                       <Image
                         src={t.avatar}
                         alt={t.name}
@@ -153,13 +153,13 @@ export const TestimonialsCarousel: React.FC = () => {
                       />
                     </div>
                     <blockquote className="text-xl italic text-gray-100 font-semibold mb-8 relative">
-                      <span className="absolute -left-6 -top-2 text-4xl text-[#a6953f]">“</span>
+                      <span className="absolute -left-6 -top-2 text-4xl text-[#00c2c8]">“</span>
                       {t.quote}
-                      <span className="absolute -right-6 -bottom-2 text-4xl text-[#a6953f]">”</span>
+                      <span className="absolute -right-6 -bottom-2 text-4xl text-[#00c2c8]">”</span>
                     </blockquote>
                     <div className="mt-auto">
                       <div className="text-gray-100 font-bold text-lg">{t.name}</div>
-                      <div className="bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] font-semibold text-sm">{t.company}</div>
+                      <div className="bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] font-semibold text-sm">{t.company}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -175,7 +175,7 @@ export const TestimonialsCarousel: React.FC = () => {
                   setDirection(idx > activeIndex ? "right" : "left");
                   setActiveIndex(idx);
                 }}
-                className={`w-4 h-4 rounded-full border-2 border-[#a6953f] transition-all duration-300 flex items-center justify-center ${activeIndex === idx ? "bg-gradient-to-r from-[#a6953f] to-[#d4b848] shadow-lg scale-110" : "bg-gray-900"}`}
+                className={`w-4 h-4 rounded-full border-2 border-[#00c2c8] transition-all duration-300 flex items-center justify-center ${activeIndex === idx ? "bg-gradient-to-r from-[#00c2c8] to-[#d4b848] shadow-lg scale-110" : "bg-gray-900"}`}
                 aria-label={`Go to testimonial ${idx + 1}`}
               />
             ))}

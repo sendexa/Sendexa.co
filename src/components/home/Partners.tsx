@@ -29,7 +29,7 @@ export const Partners = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-4">
-            Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] font-extrabold">Partners</span>
+            Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] font-extrabold">Partners</span>
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Trusted by leading financial institutions and telecom providers across Ghana
@@ -48,7 +48,7 @@ export const Partners = () => {
               key={index}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-900/80 border-2 border-[#a6953f]/30 rounded-xl p-6 flex items-center justify-center h-28 hover:border-[#a6953f] transition-all duration-300 shadow-xl group"
+              className="bg-gray-900/80 border-2 border-[#00c2c8]/30 rounded-xl p-6 flex items-center justify-center h-28 hover:border-[#00c2c8] transition-all duration-300 shadow-xl group"
             >
               <Image
                 src={partner.logo}

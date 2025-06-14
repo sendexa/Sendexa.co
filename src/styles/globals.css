@@ -45,7 +45,7 @@
 
 :root {
   --primary-hex: #111d4f;
-  --secondary-hex: #a6953f;
+  --secondary-hex: #00c2c8;
   --radius: 0.625rem;
   --background: oklch(1 0 0); /* Light background */
   --foreground: oklch(0.17 0 0); /* Dark text */

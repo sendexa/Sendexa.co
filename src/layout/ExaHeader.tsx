@@ -346,7 +346,7 @@ export function ExaHeader() {
             onClick={closeAllMenus}
           >
             <Image
-              src="/logos/Site Logo.png"
+              src="/logos/exaweb.png"
               width={170}
               height={125}
               alt="Sendexa Logo"
@@ -553,7 +553,7 @@ export function ExaHeader() {
                   onClick={closeAllMenus}
                 >
                   <Image
-                    src="/logos/Site Logo.png"
+                    src="/logos/exaweb.png"
                     width={170}
                     height={125}
                     alt="Sendexa Logo"

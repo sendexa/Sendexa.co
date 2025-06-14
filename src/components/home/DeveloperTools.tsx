@@ -25,7 +25,7 @@ export const DeveloperTools: React.FC = () => (
         className="text-center mb-16"
       >
         <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-4">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#a6953f] to-[#d4b848] font-extrabold">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00c2c8] to-[#d4b848] font-extrabold">
             Developer Tools
           </span>
         </h2>
@@ -46,9 +46,9 @@ export const DeveloperTools: React.FC = () => (
             key={index}
             whileHover={{ y: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gray-900/80 border-2 border-[#a6953f]/30 rounded-xl p-6 flex flex-col items-center justify-center h-40 hover:border-[#a6953f] transition-all duration-300 shadow-xl group"
+            className="bg-gray-900/80 border-2 border-[#00c2c8]/30 rounded-xl p-6 flex flex-col items-center justify-center h-40 hover:border-[#00c2c8] transition-all duration-300 shadow-xl group"
           >
-            <div className="mb-4 p-3 rounded-full bg-gradient-to-br from-[#a6953f]/30 to-[#d4b848]/20 group-hover:shadow-[0_4px_24px_#a6953f] transition-all">
+            <div className="mb-4 p-3 rounded-full bg-gradient-to-br from-[#00c2c8]/30 to-[#d4b848]/20 group-hover:shadow-[0_4px_24px_#00c2c8] transition-all">
               <Image
                 src={sdk.icon}
                 alt={sdk.name}
@@ -73,19 +73,19 @@ export const DeveloperTools: React.FC = () => (
       >
         <Link 
           href="https://developers.sendexa.co" 
-          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#a6953f] to-[#d4b848] text-gray-950 rounded-lg font-bold hover:shadow-xl transition-all border-2 border-[#a6953f] focus:outline-none focus:ring-2 focus:ring-[#a6953f]"
+          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#00c2c8] to-[#d4b848] text-gray-950 rounded-lg font-bold hover:shadow-xl transition-all border-2 border-[#00c2c8] focus:outline-none focus:ring-2 focus:ring-[#00c2c8]"
         >
           View Developer Docs
         </Link>
         <Link 
           href="https://github.com/sendexa" 
-          className="inline-flex items-center px-6 py-3 border-2 border-[#a6953f]/40 text-gray-200 hover:bg-gray-900 rounded-lg font-semibold transition-colors"
+          className="inline-flex items-center px-6 py-3 border-2 border-[#00c2c8]/40 text-gray-200 hover:bg-gray-900 rounded-lg font-semibold transition-colors"
         >
           GitHub
         </Link>
         {/* <Link 
           href="https://www.postman.com/" 
-          className="inline-flex items-center px-6 py-3 border-2 border-[#a6953f]/40 text-gray-200 hover:bg-gray-900 rounded-lg font-semibold transition-colors"
+          className="inline-flex items-center px-6 py-3 border-2 border-[#00c2c8]/40 text-gray-200 hover:bg-gray-900 rounded-lg font-semibold transition-colors"
         >
           Postman Collection
         </Link> */}
