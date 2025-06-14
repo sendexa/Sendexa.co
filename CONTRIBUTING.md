@@ -1,7 +1,3 @@
-Perfect — here's a well-written `CONTRIBUTING.md` tailored specifically for the **Sendexa website** repo:
-
----
-
 ### 📄 `CONTRIBUTING.md`
 
 ````markdown
@@ -20,8 +16,8 @@ We welcome all contributions — whether it's fixing a typo, improving UI/UX, or
 Click "Fork" (top right) and clone your forked repo:
 
 ```bash
-git clone https://github.com/sendexa/sendexa-website.git
-cd sendexa-website
+git clone https://github.com/sendexa/sendexa.co.git
+cd sendexa.co
 ````
 
 ### 2. Create a New Branch
