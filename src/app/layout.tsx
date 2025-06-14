@@ -70,10 +70,10 @@ export const metadata: Metadata = {
     other: {
       rel: "mask-icon",
       url: "/safari-pinned-tab.svg",
-      color: "#16335c",
+      color: "#3a0ca3",
     },
   },
-  themeColor: "#16335c",
+  themeColor: "#3a0ca3",
   verification: {
     google: "your-google-verification-code",
   },
@@ -91,7 +91,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
         />
-        <meta name="theme-color" content="#16335c" />
+        <meta name="theme-color" content="#00c2c8" />
         <link rel="preconnect" href="https://api.sendexa.co" />
         <link rel="dns-prefetch" href="https://cdn.sendexa.co" />
       </head>

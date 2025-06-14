@@ -78,14 +78,14 @@ export const metadata: Metadata = {
     other: {
       rel: 'mask-icon',
       url: '/safari-pinned-tab.svg',
-      color: '#0066ff',
+      color: '#00c2c8',
     },
   },
-  themeColor: '#0066FF',
+  themeColor: '#00c2c8',
   manifest: '/site.webmanifest',
   other: {
     'ahrefs-site-verification': 'your-ahrefs-verification-code',
-    'msapplication-TileColor': '#0066ff'
+    'msapplication-TileColor': '#00c2c8'
   }
 };
 
