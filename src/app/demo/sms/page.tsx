@@ -2,7 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Container } from "@/layout/Container";
-import { MessageSquare, Smartphone, Zap, CheckCircle, Shield, Send, Loader2 } from "lucide-react";
+import { MessageSquare,  CheckCircle, Shield, Send, Loader2 } from "lucide-react";
 import Button from "@/ui/Button";
 import { Input } from "@/ui/input";
 import { Textarea } from "@/ui/textarea";
