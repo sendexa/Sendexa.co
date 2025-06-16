@@ -2,48 +2,123 @@
 "use client";
 import { motion } from "framer-motion";
 import { Container } from "@/layout/Container";
-import { MessageSquare, Smartphone, Code, Zap, CheckCircle } from "lucide-react";
-import  Button  from "@/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs";
+import { MessageSquare, Smartphone, Zap, CheckCircle, Shield, Send, Loader2 } from "lucide-react";
+import Button from "@/ui/Button";
 import { Input } from "@/ui/input";
 import { Textarea } from "@/ui/textarea";
 import { useState } from "react";
+import { toast } from 'react-hot-toast';
 
 export default function SmsDemoPage() {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSend = () => {
+  const handleSendSMS = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate phone number format
+    if (!phone || !phone.startsWith('233')) {
+      const errorMessage = 'Phone number must start with 233';
+      toast.error(errorMessage);
+      setError(errorMessage);
+      return;
+    }
+
+    // Validate message
+    if (!message || message.trim().length === 0) {
+      const errorMessage = 'Message cannot be empty';
+      toast.error(errorMessage);
+      setError(errorMessage);
+      return;
+    }
+
     setIsSending(true);
-    // Simulate API call
-    setTimeout(() => {
+    setError("");
+    try {
+      const response = await fetch('/api/send-sms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phone,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('SMS sent successfully!');
+        setIsSent(true);
+        setTimeout(() => {
+          setPhone('');
+          setMessage('');
+          setIsSent(false);
+        }, 3000);
+      } else {
+        let errorMessage = 'Failed to send SMS';
+        
+        // Handle specific error cases
+        if (data.error) {
+          if (data.error.includes('Invalid phone number')) {
+            errorMessage = 'Invalid phone number format. Must start with 233';
+          } else if (data.error.includes('rate limit')) {
+            errorMessage = 'Rate limit exceeded. Please try again in a minute.';
+          } else if (data.error.includes('authentication')) {
+            errorMessage = 'SMS service authentication failed. Please contact support.';
+          } else {
+            errorMessage = data.error;
+          }
+        }
+        
+        setError(errorMessage);
+        toast.error(errorMessage);
+      }
+    } catch (error) {
+      let errorMessage = 'Failed to send SMS';
+      
+      if (error instanceof Error) {
+        if (error.message.includes('network')) {
+          errorMessage = 'Network error. Please check your internet connection.';
+        } else if (error.message.includes('timeout')) {
+          errorMessage = 'Request timed out. Please try again.';
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
       setIsSending(false);
-      setIsSent(true);
-      setTimeout(() => setIsSent(false), 3000);
-    }, 1500);
+    }
   };
 
-  const codeExample = `curl -X POST "https://api.sendexa.com/v1/sms" \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "to": "${phoneNumber || "+233XXXXXXXXX"}",
-    "message": "${message || "Hello from Sendexa!"}",
-    "sender_id": "Sendexa"
-  }'`;
+  const handleTemplateClick = () => {
+    setMessage("👋 Welcome to Sendexa — your all-in-one platform for fast, secure, and reliable communications. Let's help you connect better!");
+  };
 
   return (
-    <div className="bg-gray-950 min-h-screen">
+    <div className="bg-gray-950 min-h-screen relative overflow-hidden">
+      {/* Background Glow Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse delay-500"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-950 pt-28 pb-20 border-b border-gray-800">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900/50 to-gray-950/50 pt-16 pb-12 border-b border-gray-800/50 backdrop-blur-sm">
         <Container>
           <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/40 text-blue-300 mb-6 mx-auto border border-blue-800/50"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/40 text-indigo-300 mb-6 mx-auto border border-indigo-800/50 backdrop-blur-sm"
             >
               <MessageSquare className="w-4 h-4" />
               <span className="text-sm font-medium">SMS API Demo</span>
@@ -53,7 +128,7 @@ export default function SmsDemoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-400"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-400"
             >
               Send SMS Messages Instantly
             </motion.h1>
@@ -62,7 +137,7 @@ export default function SmsDemoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 max-w-3xl mx-auto"
+              className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto px-4"
             >
               Experience Sendexa&apos;s reliable SMS delivery with 99.9% success rate across all networks in Ghana
             </motion.p>
@@ -71,165 +146,105 @@ export default function SmsDemoPage() {
       </section>
 
       {/* Demo Section */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 relative">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Demo Card */}
+          <div className="max-w-xl mx-auto">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 sm:p-8 shadow-lg"
+              className="bg-gray-900/50 border border-gray-800/50 rounded-xl p-6 sm:p-8 shadow-lg backdrop-blur-sm relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-blue-900/30 text-blue-300">
-                  <Smartphone className="w-5 h-5" />
-                </div>
-                <h2 className="text-xl font-semibold text-white">Send Test SMS</h2>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1">
-                    Phone Number
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+233XXXXXXXXX"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="bg-gray-800 border-gray-700 text-white"
-                  />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-50"></div>
+              
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 rounded-lg bg-indigo-900/30 text-indigo-300">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <h2 className="text-xl font-semibold text-white">Send Test SMS</h2>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Type your message here..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="bg-gray-800 border-gray-700 text-white min-h-[120px]"
-                  />
-                </div>
+                <form onSubmit={handleSendSMS} className="space-y-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">
+                      Phone Number
+                    </label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="233XXXXXXXXX"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="bg-gray-800/50 border-gray-700/50 text-white h-12 text-base backdrop-blur-sm focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                    />
+                    <p className="mt-1.5 text-sm text-gray-500">Enter a valid Ghana phone number (e.g., 233570099699)</p>
+                  </div>
 
-                <div className="pt-2">
-                  <Button
-                    onClick={handleSend}
-                    disabled={!phoneNumber || !message || isSending}
-                    className="w-full bg-blue-600 hover:bg-blue-500"
-                  >
-                    {isSending ? (
-                      <span className="flex items-center gap-2">
-                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : isSent ? (
-                      <span className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4" />
-                        Message Sent!
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Zap className="w-4 h-4" />
-                        Send SMS
-                      </span>
-                    )}
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Code Example */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden shadow-lg"
-            >
-              <Tabs defaultValue="curl" className="h-full">
-                <div className="flex items-center border-b border-gray-800">
-                  <TabsList className="bg-transparent">
-                    <TabsTrigger value="curl" className="data-[state=active]:bg-gray-800 text-white">
-                      cURL
-                    </TabsTrigger>
-                    <TabsTrigger value="node" className="data-[state=active]:bg-gray-800 text-white">
-                      Node.js
-                    </TabsTrigger>
-                    <TabsTrigger value="python" className="data-[state=active]:bg-gray-800 text-white">
-                      Python
-                    </TabsTrigger>
-                  </TabsList>
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <TabsContent value="curl">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-gray-800 text-gray-300">
-                        <Code className="w-5 h-5" />
-                      </div>
-                      <h2 className="text-xl font-semibold text-white">API Integration</h2>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-400">
+                        Message
+                      </label>
+                      <button
+                        onClick={handleTemplateClick}
+                        className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
+                      >
+                        Use Template
+                      </button>
                     </div>
+                    <Textarea
+                      id="message"
+                      placeholder="Type your message here..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="bg-gray-800/50 border-gray-700/50 text-white min-h-[120px] text-base resize-none backdrop-blur-sm focus:border-indigo-500/50 focus:ring-indigo-500/20"
+                    />
+                    <p className="mt-1.5 text-sm text-gray-500">
+                      {message.length} characters (160 characters per SMS)
+                    </p>
+                  </div>
 
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{codeExample}</code>
-                    </pre>
-                  </TabsContent>
+                  {/* Error Message */}
+                  {error && (
+                    <div className="text-red-400 text-sm bg-red-900/20 border border-red-800/50 rounded-lg p-3">
+                      {error}
+                    </div>
+                  )}
 
-                  <TabsContent value="node">
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{`const axios = require('axios');
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      disabled={!phone || !message || isSending}
+                      className="w-full h-12 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-base font-medium shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-200"
+                    >
+                      {isSending ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <Loader2 className="animate-spin h-5 w-5" />
+                          Sending...
+                        </span>
+                      ) : isSent ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <CheckCircle className="w-5 h-5" />
+                          Message Sent!
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center gap-2">
+                          <Send className="w-5 h-5" />
+                          Send SMS
+                        </span>
+                      )}
+                    </Button>
+                  </div>
 
-const sendSMS = async () => {
-  const response = await axios.post(
-    'https://api.sendexa.com/v1/sms',
-    {
-      to: '${phoneNumber || "+233XXXXXXXXX"}',
-      message: '${message || "Hello from Sendexa!"}',
-      sender_id: 'Sendexa'
-    },
-    {
-      headers: {
-        'Authorization': 'Bearer YOUR_API_KEY',
-        'Content-Type': 'application/json'
-      }
-    }
-  );
-  console.log(response.data);
-};
-
-sendSMS();`}</code>
-                    </pre>
-                  </TabsContent>
-
-                  <TabsContent value="python">
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{`import requests
-
-url = "https://api.sendexa.com/v1/sms"
-headers = {
-    "Authorization": "Bearer YOUR_API_KEY",
-    "Content-Type": "application/json"
-}
-payload = {
-    "to": "${phoneNumber || "+233XXXXXXXXX"}",
-    "message": "${message || "Hello from Sendexa!"}",
-    "sender_id": "Sendexa"
-}
-
-response = requests.post(url, json=payload, headers=headers)
-print(response.json())`}</code>
-                    </pre>
-                  </TabsContent>
-                </div>
-              </Tabs>
+                  {/* Security Note */}
+                  <div className="flex items-center gap-2 text-sm text-gray-500 pt-2">
+                    <Shield className="w-4 h-4" />
+                    <span>Your message is encrypted and secure</span>
+                  </div>
+                </form>
+              </div>
             </motion.div>
           </div>
         </Container>

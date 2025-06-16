@@ -2,343 +2,334 @@
 "use client";
 import { motion } from "framer-motion";
 import { Container } from "@/layout/Container";
-import { LockKeyhole, Smartphone, Mail, Code, CheckCircle, Zap } from "lucide-react";
-import  Button  from "@/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs";
+import {  CheckCircle,  Send, Loader2, KeyRound, RefreshCw } from "lucide-react";
+import Button from "@/ui/Button";
 import { Input } from "@/ui/input";
 import { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import { toast } from 'react-hot-toast';
 
-export default function OtpDemoPage() {
-  const [recipient, setRecipient] = useState("");
-  const [channel, setChannel] = useState("sms");
+export default function OTPDemo() {
+  const [phone, setPhone] = useState('');
+  const [otp, setOtp] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const [isSent, setIsSent] = useState(false);
-  const [otpCode, setOtpCode] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [error, setError] = useState('');
+  const [prefix, setPrefix] = useState('');
 
-  const generateOTP = () => {
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  };
-
-  const handleSendOTP = () => {
-    setIsSending(true);
-    const code = generateOTP();
-    setOtpCode(code);
+  const handleSendOTP = async (e: React.FormEvent) => {
+    e.preventDefault();
     
-    // Simulate API call
-    setTimeout(() => {
+    // Validate phone number format
+    if (!phone || !phone.startsWith('233')) {
+      const errorMessage = 'Phone number must start with 233';
+      toast.error(errorMessage);
+      setError(errorMessage);
+      return;
+    }
+
+    setIsSending(true);
+    setError('');
+    try {
+      const response = await fetch('/api/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('OTP sent successfully!');
+        setIsSent(true);
+        setPrefix(data.prefix);
+        setOtp('');
+        setIsVerified(false);
+      } else {
+        let errorMessage = 'Failed to send OTP';
+        
+        // Handle specific error cases
+        if (data.error) {
+          if (data.error.includes('Invalid phone number')) {
+            errorMessage = 'Invalid phone number format. Must start with 233';
+          } else if (data.error.includes('rate limit')) {
+            errorMessage = 'Rate limit exceeded. Please try again in a minute.';
+          } else if (data.error.includes('authentication')) {
+            errorMessage = 'OTP service authentication failed. Please contact support.';
+          } else {
+            errorMessage = data.error;
+          }
+        }
+        
+        setError(errorMessage);
+        toast.error(errorMessage);
+      }
+    } catch (error) {
+      let errorMessage = 'Failed to send OTP';
+      
+      if (error instanceof Error) {
+        if (error.message.includes('network')) {
+          errorMessage = 'Network error. Please check your internet connection.';
+        } else if (error.message.includes('timeout')) {
+          errorMessage = 'Request timed out. Please try again.';
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
       setIsSending(false);
-      setIsSent(true);
-      setTimeout(() => setIsSent(false), 5000);
-    }, 1500);
+    }
   };
 
-  const codeExample = `curl -X POST "https://api.sendexa.co/v1/otp/send" \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "to": "${recipient || (channel === 'sms' ? '+233XXXXXXXXX' : 'email@example.com')}",
-    "channel": "${channel}",
-    "length": 6,
-    "expiry": 300,
-    "template": "Your Sendexa verification code is {code}"
-  }'`;
+  const handleVerifyOTP = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate OTP format
+    if (!otp || !/^\d{4}$/.test(otp)) {
+      const errorMessage = 'Please enter a valid 4-digit OTP';
+      toast.error(errorMessage);
+      setError(errorMessage);
+      return;
+    }
+
+    setIsVerifying(true);
+    setError('');
+    try {
+      const response = await fetch('/api/verify-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code: otp }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('OTP verified successfully!');
+        setIsVerified(true);
+        setTimeout(() => {
+          setPhone('');
+          setOtp('');
+          setIsSent(false);
+          setIsVerified(false);
+          setPrefix('');
+        }, 3000);
+      } else {
+        let errorMessage = 'Failed to verify OTP';
+        
+        if (data.error) {
+          if (data.error.includes('expired')) {
+            errorMessage = 'OTP session expired. Please request a new OTP.';
+          } else if (data.error.includes('Invalid OTP')) {
+            errorMessage = 'Invalid OTP code. Please try again.';
+          } else {
+            errorMessage = data.error;
+          }
+        }
+        
+        setError(errorMessage);
+        toast.error(errorMessage);
+      }
+    } catch (error) {
+      let errorMessage = 'Failed to verify OTP';
+      
+      if (error instanceof Error) {
+        if (error.message.includes('network')) {
+          errorMessage = 'Network error. Please check your internet connection.';
+        } else if (error.message.includes('timeout')) {
+          errorMessage = 'Request timed out. Please try again.';
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  const handleResendOTP = async () => {
+    if (!phone) return;
+    await handleSendOTP(new Event('submit') as unknown as React.FormEvent<HTMLFormElement>);
+  };
 
   return (
-    <div className="bg-gray-950 min-h-screen">
+    <div className="bg-gray-950 min-h-screen relative overflow-hidden">
+      {/* Background Glow Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse delay-500"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-950 pt-28 pb-20 border-b border-gray-800">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900/50 to-gray-950/50 pt-16 pb-12 border-b border-gray-800/50 backdrop-blur-sm">
         <Container>
           <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/40 text-indigo-300 mb-6 mx-auto border border-indigo-800/50"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/40 text-indigo-300 mb-6 mx-auto border border-indigo-800/50 backdrop-blur-sm"
             >
-              <LockKeyhole className="w-4 h-4" />
+              <KeyRound className="w-4 h-4" />
               <span className="text-sm font-medium">OTP API Demo</span>
             </motion.div>
-            
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-400"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-400"
             >
-              Secure Authentication Made Simple
+              Secure OTP Verification
             </motion.h1>
-            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 max-w-3xl mx-auto"
+              className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto px-4"
             >
-              Experience Sendexa&apos;s OTP delivery via SMS, Email or WhatsApp with 500ms average delivery time
+              Test how easy it is to verify your users with secure one-time passwords using Sendexa.
             </motion.p>
           </div>
         </Container>
       </section>
 
       {/* Demo Section */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 relative">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Demo Card */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+          <div className="max-w-xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 sm:p-8 shadow-lg"
+              className="bg-gray-900/50 border border-gray-800/50 rounded-xl p-6 sm:p-8 shadow-lg backdrop-blur-sm relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-indigo-900/30 text-indigo-300">
-                  <LockKeyhole className="w-5 h-5" />
-                </div>
-                <h2 className="text-xl font-semibold text-white">Send Test OTP</h2>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
-                    Delivery Channel
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    <Button
-                      variant={channel === "sms" ? "primary" : "outline"}
-                      onClick={() => setChannel("sms")}
-                      className={`flex items-center gap-2 ${channel !== "sms" ? "border-gray-700 text-gray-300 hover:bg-gray-800" : ""}`}
-                    >
-                      <Smartphone className="w-4 h-4" />
-                      SMS
-                    </Button>
-                    <Button
-                      variant={channel === "email" ? "primary" : "outline"}
-                      onClick={() => setChannel("email")}
-                      className={`flex items-center gap-2 ${channel !== "email" ? "border-gray-700 text-gray-300 hover:bg-gray-800" : ""}`}
-                    >
-                      <Mail className="w-4 h-4" />
-                      Email
-                    </Button>
-                    <Button
-                      variant={channel === "whatsapp" ? "primary" : "outline"}
-                      onClick={() => setChannel("whatsapp")}
-                      className={`flex items-center gap-2 ${channel !== "whatsapp" ? "border-gray-700 text-gray-300 hover:bg-gray-800" : ""}`}
-                    >
-                      <FaWhatsapp className="w-4 h-4" />
-                      WhatsApp
-                    </Button>
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-50"></div>
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 rounded-lg bg-indigo-900/30 text-indigo-300">
+                    <KeyRound className="w-5 h-5" />
                   </div>
+                  <h2 className="text-xl font-semibold text-white">Send & Verify OTP</h2>
                 </div>
 
-                <div>
-                  <label htmlFor="recipient" className="block text-sm font-medium text-gray-400 mb-1">
-                    {channel === "sms" ? "Phone Number" : channel === "whatsapp" ? "WhatsApp Number" : "Email Address"}
-                  </label>
-                  <Input
-                    id="recipient"
-                    type={channel === "email" ? "email" : "tel"}
-                    placeholder={
-                      channel === "sms" ? "+233XXXXXXXXX" : 
-                      channel === "whatsapp" ? "+233XXXXXXXXX" : 
-                      "user@example.com"
-                    }
-                    value={recipient}
-                    onChange={(e) => setRecipient(e.target.value)}
-                    className="bg-gray-800 border-gray-700 text-white"
-                  />
-                </div>
-
-                {isSent && (
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                    <div className="flex items-center gap-3 text-green-400">
-                      <CheckCircle className="w-5 h-5" />
-                      <span className="font-medium">OTP Sent Successfully!</span>
-                    </div>
-                    <div className="mt-2 text-gray-300">
-                      Your verification code is: <span className="font-mono font-bold text-white">{otpCode}</span>
-                    </div>
+                <form onSubmit={isSent ? handleVerifyOTP : handleSendOTP} className="space-y-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">
+                      Phone Number
+                    </label>
+                    <Input
+                      type="tel"
+                      id="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="Enter phone number (e.g., 233551196764)"
+                      disabled={isSent}
+                      className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all"
+                    />
                   </div>
-                )}
 
-                <div className="pt-2">
-                  <Button
-                    onClick={handleSendOTP}
-                    disabled={!recipient || isSending}
-                    className="w-full bg-indigo-600 hover:bg-indigo-500"
-                  >
-                    {isSending ? (
-                      <span className="flex items-center gap-2">
-                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending OTP...
-                      </span>
-                    ) : isSent ? (
-                      <span className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4" />
-                        OTP Sent!
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Zap className="w-4 h-4" />
-                        Send OTP
-                      </span>
-                    )}
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Code Example */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden shadow-lg"
-            >
-              <Tabs defaultValue="curl" className="h-full">
-                <div className="flex items-center border-b border-gray-800">
-                  <TabsList className="bg-transparent">
-                    <TabsTrigger value="curl" className="data-[state=active]:bg-gray-800">
-                      cURL
-                    </TabsTrigger>
-                    <TabsTrigger value="node" className="data-[state=active]:bg-gray-800">
-                      Node.js
-                    </TabsTrigger>
-                    <TabsTrigger value="python" className="data-[state=active]:bg-gray-800">
-                      Python
-                    </TabsTrigger>
-                  </TabsList>
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <TabsContent value="curl">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-gray-800 text-gray-300">
-                        <Code className="w-5 h-5" />
+                  {isSent && (
+                    <div>
+                      <label htmlFor="otp" className="block text-sm font-medium text-gray-400 mb-2">
+                        Enter OTP Code
+                      </label>
+                      <div className="relative">
+                        <Input
+                          type="text"
+                          id="otp"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          placeholder="Enter 4-digit OTP"
+                          maxLength={4}
+                          className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all"
+                        />
+                        {prefix && (
+                          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-indigo-400">
+                            {prefix}
+                          </div>
+                        )}
                       </div>
-                      <h2 className="text-xl font-semibold text-white">API Integration</h2>
+                      <div className="mt-2 flex items-center justify-between">
+                        <p className="text-sm text-gray-500">
+                          Enter the 4-digit code sent to your phone
+                        </p>
+                        <button
+                          type="button"
+                          onClick={handleResendOTP}
+                          disabled={isSending}
+                          className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1"
+                        >
+                          <RefreshCw className="w-4 h-4" />
+                          Resend
+                        </button>
+                      </div>
                     </div>
+                  )}
 
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{codeExample}</code>
-                    </pre>
-                  </TabsContent>
+                  {/* Error Message */}
+                  {error && (
+                    <div className="text-red-400 text-sm bg-red-900/20 border border-red-800/50 rounded-lg p-3">
+                      {error}
+                    </div>
+                  )}
 
-                  <TabsContent value="node">
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{`const axios = require('axios');
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      disabled={isSending || isVerifying || isVerified}
+                      className="w-full h-12 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-base font-medium shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-200"
+                    >
+                      {isSending ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <Loader2 className="animate-spin h-5 w-5" />
+                          Sending...
+                        </span>
+                      ) : isVerifying ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <Loader2 className="animate-spin h-5 w-5" />
+                          Verifying...
+                        </span>
+                      ) : isVerified ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <CheckCircle className="w-5 h-5" />
+                          Verified!
+                        </span>
+                      ) : isSent ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <KeyRound className="w-5 h-5" />
+                          Verify OTP
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center gap-2">
+                          <Send className="w-5 h-5" />
+                          Send OTP
+                        </span>
+                      )}
+                    </Button>
+                  </div>
+                </form>
 
-const sendOTP = async () => {
-  const response = await axios.post(
-    'https://api.sendexa.co/v1/otp/send',
-    {
-      to: '${recipient || (channel === 'sms' ? '+233XXXXXXXXX' : 'email@example.com')}',
-      channel: '${channel}',
-      length: 6,
-      expiry: 300,
-      template: 'Your Sendexa verification code is {code}'
-    },
-    {
-      headers: {
-        'Authorization': 'Bearer YOUR_API_KEY',
-        'Content-Type': 'application/json'
-      }
-    }
-  );
-  console.log(response.data);
-};
-
-sendOTP();`}</code>
-                    </pre>
-                  </TabsContent>
-
-                  <TabsContent value="python">
-                    <pre className="bg-gray-800 rounded-lg p-4 text-sm text-gray-300 overflow-x-auto">
-                      <code>{`import requests
-
-url = "https://api.sendexa.co/v1/otp/send"
-headers = {
-    "Authorization": "Bearer YOUR_API_KEY",
-    "Content-Type": "application/json"
-}
-payload = {
-    "to": "${recipient || (channel === 'sms' ? '+233XXXXXXXXX' : 'email@example.com')}",
-    "channel": "${channel}",
-    "length": 6,
-    "expiry": 300,
-    "template": "Your Sendexa verification code is {code}"
-}
-
-response = requests.post(url, json=payload, headers=headers)
-print(response.json())`}</code>
-                    </pre>
-                  </TabsContent>
+                <div className="mt-6 p-4 bg-gray-800/30 rounded-lg border border-gray-700/30">
+                  <p className="text-sm text-gray-400">
+                    Your OTP is sent through our secure SMS gateway with delivery tracking and status updates.
+                  </p>
                 </div>
-              </Tabs>
+              </div>
             </motion.div>
           </div>
         </Container>
       </section>
-
-     
-
-      {/* Verification Demo */}
-      <section className="py-16">
-        <Container>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gray-900/50 border border-gray-800 rounded-xl p-8 sm:p-10 max-w-4xl mx-auto"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">OTP Verification Flow</h2>
-              <p className="text-gray-400">See how easy it is to verify OTP codes with our API</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <LockKeyhole className="w-5 h-5 text-indigo-400" />
-                  Verify OTP Code
-                </h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-1">
-                      OTP Code
-                    </label>
-                    <Input
-                      placeholder="Enter 6-digit code"
-                      className="bg-gray-800 border-gray-700 text-white font-mono"
-                    />
-                  </div>
-                  
-                  <Button className="w-full bg-indigo-600 hover:bg-indigo-500">
-                    Verify Code
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="bg-gray-800/30 rounded-lg p-6 border border-dashed border-gray-700 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="mx-auto bg-gray-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <Code className="w-5 h-5 text-gray-400" />
-                  </div>
-                  <h3 className="text-lg font-medium text-gray-300 mb-2">API Response</h3>
-                  <p className="text-sm text-gray-500">Verification result will appear here</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
-
-     
     </div>
   );
 }

@@ -1,0 +1,142 @@
+OTP
+Last updated April 29th, 2025
+
+Overview
+The following documentation presents comprehensive resources to help developers integrate with Hubtel's OTP API.
+
+This service enables you to verify your users via One-Time-Password which is useful especially for authentication.
+
+When implemented, Hubtel generates 3 tokens:
+
+RequestId - an identifier for your OTP session.
+Prefix - a 4 character phrase.
+Code - the 4 digit code that will only be delivered to your user via SMS.
+As a fallback option, Hubtel provides a USSD option to view the Code, in cases where SMS delivery fails. The user is expected to dial the USSD code "*713*90#" using the same phone number that should receive the SMS.
+
+
+Send OTP
+This API sends an OTP to the recipient.
+
+
+Request Parameters
+Parameter	Type	Requirement	Description
+senderId	String	Mandatory	Sender of the message or Sender ID. Must be 11 alpha-numeric characters or less; subject to approval by Hubtel. Find or request Sender ID here.
+phoneNumber	String	Mandatory	The recipient's telephone number. Must be full international format (E164).
+countryCode	String	Mandatory	Must be a valid ISO 3166-1 alpha-2 country code. E.g. "GH".
+
+RESPONSE PARAMETERS
+Parameter	Type	Description
+message	String	Indicates the status of the message.
+Code	String	The unique response error code on the status of the message.
+Data	Object	An object containing the required data response from the API.
+requestId	Double	A unique identifier for the OTP session.
+prefix	String	A 4 character phrase.
+
+SAMPLE REQUEST
+cURL
+
+copy
+Copy
+curl -i -X POST \
+-u <username>:<password> \
+https://api-otp.hubtel.com/otp/send \
+-H 'Content-Type: application/json' \
+-d '{
+  "senderId": "MySenderId",
+  "phoneNumber": "string",
+  "countryCode": "GH"
+}'
+
+SAMPLE RESPONSE
+JSON
+
+copy
+Copy
+  {
+      "message": "success",
+      "code": "0000",
+      "data": {
+          "requestId": "707ebf1408f149ff826a556c5b2caba0",
+          "prefix": "ZDSQ"
+      }
+  }
+
+Verify OTP
+This endpoint verifies an OTP.
+
+
+Request Parameters
+Parameter	Type	Requirement	Description
+requestId	String	Mandatory	A unique identifier for the OTP session gotten from a Send OTP response.
+prefix	String	Mandatory	A 4 character phrase gotten from a Send OTP response.
+code	String	Mandatory	The 4-digit code from your user.
+bulb-icon
+Note
+There is no response payload for this API. Kindly listen for the HTTP status code.
+
+
+SAMPLE REQUEST
+cURL
+
+copy
+Copy
+curl -i -X POST \
+-u <username>:<password> \
+https://api-otp.hubtel.com/otp/verify \
+-H 'Content-Type: application/json' \
+-d '{
+  "requestId": "string",
+  "prefix": "string",
+  "code": "string"
+}'
+
+Resend OTP
+This endpoint re-sends a previously issued OTP to your user. A common use case may be when the SMS delivery delays significantly.
+
+
+REQUEST PARAMETERS
+Parameter	Type	Requirement	Description
+requestId	String	Mandatory	A unique identifier for the OTP session gotten from a Send OTP response.
+
+RESPONSE PARAMETERS
+Parameter	Type	Description
+message	String	Indicates the status of the message.
+Code	String	The unique response error code on the status of the message.
+Data	Object	An object containing the required data response from the API.
+requestId	Double	A unique identifier for the OTP session.
+prefix	String	A 4 character phrase.
+
+SAMPLE REQUEST
+cURL
+
+copy
+Copy
+curl -i -X POST \
+-u <username>:<password> \
+https://api-otp.hubtel.com/otp/resend \
+-H 'Content-Type: application/json' \
+-d '{
+  "requestId": "string"
+}'
+
+SAMPLE RESPONSE
+JSON
+
+copy
+Copy
+  {
+      "message": "success",
+      "code": "0000",
+      "data": {
+      "requestId": "255f692e56f2437ebf26965de5784ad1",
+      "prefix": "TZBH"
+      }
+  }
+
+Response Codes
+Response codes are included in the JSON response body, which contain information about the response.
+
+Code	Description	Required Action
+0000	The request has been processed successfully.	None
+2001	Request failed
+OTP session may have expired	None
