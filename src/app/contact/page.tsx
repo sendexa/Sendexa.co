@@ -5,6 +5,9 @@ import { ContactDetails } from "@/components/contact/ContactDetails";
 import { ContactMap } from "@/components/contact/ContactMap";
 //import { Testimonials } from "@/components/payments/Testimonials";
 import { Container } from "@/layout/Container";
+//import dynamic from "next/dynamic";
+import Script from "next/script";
+
 
 // const testimonialData = [
 //   {
@@ -74,25 +77,31 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-gray-950 text-gray-100 min-h-screen">
-      <ContactHero />
+    <>
+      <Script
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="beforeInteractive"
+      />
+      <div className="bg-gray-950 text-gray-100 min-h-screen">
+        <ContactHero />
 
-      <div className="py-20 bg-gradient-to-b from-gray-900 to-gray-950">
-        <Container>
-          <div className="container mx-auto">
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="lg:w-1/2">
-                <ContactForm />
-              </div>
-              <div className="lg:w-1/2">
-                <ContactDetails />
+        <div className="py-20 bg-gradient-to-b from-gray-900 to-gray-950">
+          <Container>
+            <div className="container mx-auto">
+              <div className="flex flex-col lg:flex-row gap-12">
+                <div className="lg:w-1/2">
+                  <ContactForm />
+                </div>
+                <div className="lg:w-1/2">
+                  <ContactDetails />
+                </div>
               </div>
             </div>
-          </div>
-        </Container>
-      </div>
+          </Container>
+        </div>
 
-      <ContactMap />
-    </div>
+        <ContactMap />
+      </div>
+    </>
   );
 }

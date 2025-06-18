@@ -5,6 +5,7 @@ import { ExaFooter } from "@/layout/ExaFooter";
 import { ThemeProvider } from "next-themes";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+//import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from "next";
 import { AnalyticsProvider } from "@/context/AnalyticsProvider";
 import { CookiesProvider } from "@/context/CookiesContext";
@@ -133,6 +134,18 @@ export default function RootLayout({
             gtag('config', 'G-FLDGHERSB9');
           `}
         </Script>
+        <Script
+          src="https://cdn.xtopay.co/xtopay.js"
+          strategy="afterInteractive"
+        />
+        <Script src="https://js.sendexa.co/" strategy="afterInteractive" />
+        <Script src="https://cdn.xtottel.com/" strategy="afterInteractive" />
+
+        <Script
+          src="https://vercel-speed-insights.vercel.app/script.js"
+          strategy="afterInteractive"
+          data-vercel-speed-insights="your-vercel-speed-insights-id"
+        />
       </body>
     </html>
   );
