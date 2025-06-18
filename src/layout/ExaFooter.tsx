@@ -31,19 +31,19 @@ export const ExaFooter = () => {
     {
       title: "Company",
       links: [
-        { name: "About Us", href: "https://discover.sendexa.co/about" },
-        { name: "Our Blog", href: "https://blog.sendexa.co/" },
+        { name: "About Us", href: "/about" },
+        { name: "Our Blog", href: "/blog" },
         { name: "Contact Us", href: "/contact" },
         { name: "Sendexa Cares", href: "https://cares.sendexa.co/" },
-        { name: "Leadership & Team", href: "https://discover.sendexa.co/team" },
+        { name: "Leadership & Team", href: "/team" },
       ],
     },
     {
       title: "Resources",
       links: [
         { name: "Connect to APIs", href: "https://developers.sendexa.co/" },
-        { name: "Our Partners", href: "https://discover.sendexa.co/partners" },
-        { name: "FAQs & Help", href: "https://discover.sendexa.co/faqs" },
+        { name: "Our Partners", href: "/partners" },
+        { name: "FAQs & Help", href: "/faqs" },
         { name: "Tutorial Videos", href: "https://youtube.com/sendexa" },
         { name: "System Status", href: "/status" },
       ],
@@ -53,23 +53,23 @@ export const ExaFooter = () => {
       links: [
         {
           name: "Terms of Service",
-          href: "https://discover.sendexa.co/legal/terms",
+          href: "/legal/terms",
         },
         {
           name: "Privacy Policy",
-          href: "https://discover.sendexa.co/legal/privacy",
+          href: "/legal/privacy",
         },
         {
           name: "Cookie Policy",
-          href: "https://discover.sendexa.co/legal/cookies",
+          href: "/legal/cookies",
         },
         {
           name: "Acceptable Use",
-          href: "https://discover.sendexa.co/legal/acceptable-use",
+          href: "/legal/acceptable-use",
         },
         {
           name: "Licenses",
-          href: "https://discover.sendexa.co/legal/licenses",
+          href: "/legal/licenses",
         },
       ],
     },

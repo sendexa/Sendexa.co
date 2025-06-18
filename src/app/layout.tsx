@@ -21,17 +21,17 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sendexa | Africa's Leading Communication & Payment APIs",
+    default: "Sendexa | Africa's Leading Communication APIs",
     template: "%s | Sendexa", // Adds Sendexa suffix to child page titles
   },
   description:
-    "Powering 10,000+ businesses with enterprise-grade SMS, WhatsApp, Email & Payments APIs. 99.9% uptime, fastest delivery speeds, and developer-first tools.",
+    "Powering 10,000+ businesses with enterprise-grade SMS, WhatsApp, Email  APIs. 99.9% uptime, fastest delivery speeds, and developer-first tools.",
   metadataBase: new URL("https://sendexa.co"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Sendexa | All-in-One Platform for Communications & Payments",
+    title: "Sendexa | All-in-One Platform for Communications ",
     description:
       "Everything to engage customers and collect payments across Africa. Get started with 10,000 free credits.",
     url: "https://sendexa.co",
@@ -91,7 +91,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
         />
-        <meta name="theme-color" content="#00c2c8" />
+        <meta name="theme-color" content="#111e4f" />
         <link rel="preconnect" href="https://api.sendexa.co" />
         <link rel="dns-prefetch" href="https://cdn.sendexa.co" />
       </head>

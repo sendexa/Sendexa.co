@@ -7,40 +7,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/ui/Button";
 import Image from "next/image";
 import { Container } from "./Container";
+
 import {
+  MessageSquareText,
+  LockKeyhole,
+  MailPlus,
+  CodeXml,
+  Users,
+  Server,
+  FileText,
+  HelpCircle,
+  Briefcase,
+  MailOpen,
   AlignRight,
-  X,
+  ArrowRight,
   ChevronDown,
   ChevronUp,
-  ArrowRight,
-  Briefcase,
-  MailPlus,
-  HelpCircle,
-  Building,
-  FileText,
-  MailOpen,
-  Users,
-  CodeXml,
-  BadgeCent,
-  LockKeyhole,
-  HandHeart,
-  ShieldCheck,
-  BookOpen,
-  BarChart3,
-  BellRing,
-  MessageSquareText,
-  MessageSquareDashed,
-  Video,
-  ShoppingCart,
-  Search,
+  X,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 
-const navItems = [
-  // {
-  //   name: "Home",
-  //   href: "/",
-  // },
+export const navItems = [
   {
     name: "Products",
     href: "#",
@@ -49,153 +35,78 @@ const navItems = [
         name: "SMS API",
         href: "/products/sms",
         description:
-          "Deliver SMS reliably across Ghana with intelligent routing.",
+          "Deliver mission-critical SMS with local routing and real-time analytics.",
         icon: <MessageSquareText className="w-5 h-5" />,
         color:
-          "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/50 dark:text-yellow-300",
+          "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
         cta: false,
       },
       {
         name: "OTP API",
         href: "/products/otp",
         description:
-          "Secure your app with real-time OTP delivery via SMS, Email or WhatsApp.",
+          "Protect logins, payments, and signups with instant OTP via SMS or Email.",
         icon: <LockKeyhole className="w-5 h-5" />,
         color:
-          "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-300",
-        cta: false,
-      },
-      {
-        name: "WhatsApp Business API",
-        href: "/products/whatsapp",
-        description:
-          "Send alerts, OTPs, and support messages over WhatsApp at scale.",
-        icon: <FaWhatsapp className="w-5 h-5" />,
-        color:
-          "bg-lime-100 text-lime-600 dark:bg-lime-900/50 dark:text-lime-300",
-        cta: false,
-      },
-      {
-        name: "Payments API",
-        href: "/products/payments",
-        description:
-          "Collect payments, disburse funds, and manage wallets securely.",
-        icon: <BadgeCent className="w-5 h-5" />,
-        color:
-          "bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-300",
+          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
         cta: false,
       },
       {
         name: "Email API",
         href: "/products/email",
-        description: "Send, receive, and track emails reliably at scale.",
+        description:
+          "Send high-inbox-rate transactional and bulk emails at scale.",
         icon: <MailPlus className="w-5 h-5" />,
         color:
-          "bg-green-100 text-green-600 dark:bg-green-900/50 dark:text-green-300",
+          "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
         cta: false,
       },
       {
-        name: "Push Notifications",
-        href: "/products/push",
-        description: "Send browser and in-app notifications users never miss.",
-        icon: <BellRing className="w-5 h-5" />,
+        name: "SMPP Gateway",
+        href: "/products/smpp",
+        description:
+          "Integrate directly via SMPP to access our carrier-grade SMS routes.",
+        icon: <Server className="w-5 h-5" />,
         color:
-          "bg-purple-100 text-purple-600 dark:bg-purple-900/50 dark:text-purple-300",
-        cta: false,
+          "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+        cta: true,
       },
-      
     ],
   },
+  {
+    name: "Developers",
+    href: "https://developers.sendexa.co/",
+  },
+
   {
     name: "Services",
     href: "#",
     subLinks: [
       {
         name: "Custom Software & Portals",
-        href: "https://discover.sendexa.co/software-development/",
+        href: "/services/software-development/",
         description:
-          "Get web and mobile systems tailored for schools, fintech, logistics, and more.",
+          "Tailored comms systems for schools, fintech, and logistics.",
         icon: <CodeXml className="w-5 h-5" />,
         color:
-          "bg-purple-100 text-purple-600 dark:bg-purple-900/50 dark:text-purple-300",
+          "bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
         cta: false,
       },
       {
         name: "Reseller Services",
-        href: "https://discover.sendexa.co/reseller/",
-        description:
-          "Earn revenue by reselling Sendexa’s messaging, email, and OTP services with your own branding.",
+        href: "/services/reseller/",
+        description: "White-label our SMS, Email & OTP to grow your business.",
         icon: <Users className="w-5 h-5" />,
         color:
-          "bg-teal-100 text-teal-600 dark:bg-teal-900/50 dark:text-teal-300",
-        cta: false,
-      },
-      {
-        name: "Zendu (Streaming Platform)",
-        href: "https://zendu.tv/",
-        description:
-          "Launch and monetize livestreams, virtual events, and exclusive content — powered by Sendexa.",
-        icon: <Video className="w-5 h-5" />,
-        color:
-          "bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-200",
-        cta: false,
-      },
-      {
-        name: "ExaShop (Ecommerce)",
-        href: "https://shop.sendexa.co/",
-        description:
-          "Create and manage your own online store, accept payments instantly, and grow your business — powered by Sendexa.",
-        icon: <ShoppingCart className="w-5 h-5" />,
-        color:
-          "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200",
-        cta: false,
-      },
-      {
-        name: "ExaPolls (Survey Tool)",
-        href: "https://polls.sendexa.co/",
-        description:
-          "Run branded polls or feedback forms for businesses and institutions.",
-        icon: <BarChart3 className="w-5 h-5" />,
-        color:
-          "bg-cyan-100 text-cyan-600 dark:bg-cyan-900/50 dark:text-cyan-300",
-        cta: false,
-      },
-      {
-        name: "Boame (Crowdfunding)",
-        href: "https://boame.sendexa.co/",
-        description: "Launch or support fundraising campaigns across Ghana.",
-        icon: <HandHeart className="w-5 h-5" />,
-        color:
-          "bg-pink-100 text-pink-600 dark:bg-pink-900/50 dark:text-pink-300",
+          "bg-teal-50 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300",
         cta: false,
       },
     ],
   },
+
   {
-    name: "Developers",
-    href: "#",
-    subLinks: [
-      {
-        name: "API Documentation",
-        href: "https://developers.sendexa.co/",
-        description:
-          "Comprehensive guides and API references for all our products.",
-        icon: <BookOpen className="w-5 h-5" />,
-        color:
-          "bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-300",
-        cta: false,
-      },
-      {
-        name: "Status Page",
-        href: "/status",
-        description:
-          "Check the status of our services and subscribe for updates.",
-        icon: <ShieldCheck className="w-5 h-5" />,
-        color:
-          "bg-gray-100 text-gray-600 dark:bg-gray-900/50 dark:text-gray-300",
-        cta: false,
-      },
-    ],
+    name: "Pricing",
+    href: "/pricing",
   },
 
   {
@@ -204,85 +115,38 @@ const navItems = [
     subLinks: [
       {
         name: "Blog & Insights",
-        href: "https://blog.sendexa.co/",
-        description:
-          "Product news, industry trends, and practical messaging strategies.",
+        href: "/blog",
+        description: "Tips, product news, and industry insights.",
         icon: <FileText className="w-5 h-5" />,
         color:
-          "bg-orange-100 text-orange-600 dark:bg-orange-900/50 dark:text-orange-300",
+          "bg-orange-50 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
         cta: false,
       },
       {
         name: "FAQs & Help Center",
-        href: "https://discover.sendexa.co/faqs/",
-        description:
-          "Find answers to frequently asked questions about our products and services.",
+        href: "/faqs",
+        description: "Browse frequently asked questions and answers.",
         icon: <HelpCircle className="w-5 h-5" />,
         color:
-          "bg-purple-100 text-purple-600 dark:bg-purple-900/50 dark:text-purple-300",
-        cta: false,
-      },
-       {
-        name: "Why was I debited?",
-        href: "https://lookup.sendexa.co/",
-        icon: <Search className="w-5 h-5" />,
-        description: "Find out why you were debited by Sendexa.",
-        color:
-          "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-200",
-      },
-    ],
-  },
-
-  {
-    name: "Why Sendexa?",
-    href: "#",
-    subLinks: [
-      {
-        name: "About Us",
-        href: "https://discover.sendexa.co/",
-        description:
-          "Discover how we're revolutionizing communication and payments across Ghana and beyond.",
-        icon: <Building className="w-5 h-5" />,
-        color:
-          "bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-300",
-        cta: false,
-      },
-      {
-        name: "Leadership & Team",
-        href: "https://discover.sendexa.co/team",
-        description:
-          "Meet the passionate team driving Sendexa’s innovation and growth.",
-        icon: <Users className="w-5 h-5" />,
-        color:
-          "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/50 dark:text-yellow-300",
+          "bg-purple-50 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
         cta: false,
       },
       {
         name: "Careers",
-        href: "https://discover.sendexa.co/careers/",
-        description:
-          "Join us in building Africa’s most reliable messaging and fintech backbone.",
+        href: "/careers",
+        description: "Join us in building Africa’s comms infrastructure.",
         icon: <Briefcase className="w-5 h-5" />,
         color:
-          "bg-green-100 text-green-600 dark:bg-green-900/50 dark:text-green-300",
+          "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
         cta: true,
       },
       {
         name: "Contact Us",
         href: "/contact",
-        description: "Get in touch — our team is ready to support you.",
+        description: "Talk to our team — we’re here to help.",
         icon: <MailOpen className="w-5 h-5" />,
-        color: "bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-300",
-        cta: false,
-      },
-      {
-        name: "Suggestion Box",
-        href: "/suggestions",
-        description:
-          "Share your ideas or feedback to help us serve you better.",
-        icon: <MessageSquareDashed className="w-5 h-5" />,
         color:
-          "bg-purple-100 text-purple-600 dark:bg-purple-900/50 dark:text-purple-300",
+          "bg-rose-50 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
         cta: false,
       },
     ],
@@ -425,8 +289,8 @@ export function ExaHeader() {
                                       ? // ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500"
                                         "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white hover:from-[#a08721]/90 hover:to-purple-500"
                                       : pathname === subLink.href
-                                      ? "bg-blue-50 dark:bg-gray-800"
-                                      : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                                        ? "bg-blue-50 dark:bg-gray-800"
+                                        : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
                                   }`}
                                   onClick={closeAllMenus}
                                 >
@@ -492,7 +356,7 @@ export function ExaHeader() {
                   (window.location.href = "https://app.sendexa.co/")
                 }
               >
-                <span>Get Started</span>
+                <span>Login</span>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -501,7 +365,7 @@ export function ExaHeader() {
                 className="gap-2"
                 onClick={() => (window.location.href = "/demo")}
               >
-                <span>Try Demo</span>
+                <span>Get Started</span>
               </Button>
             </motion.div>
           </div>
@@ -620,8 +484,8 @@ export function ExaHeader() {
                                       subLink.cta
                                         ? "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white"
                                         : pathname === subLink.href
-                                        ? "bg-blue-50 dark:bg-gray-800"
-                                        : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                                          ? "bg-blue-50 dark:bg-gray-800"
+                                          : "hover:bg-gray-100 dark:hover:bg-gray-800"
                                     }`}
                                     onClick={closeAllMenus}
                                   >
@@ -677,10 +541,10 @@ export function ExaHeader() {
                       className="w-full gap-2"
                       onClick={() => {
                         closeAllMenus();
-                        window.location.href = "https://app.sendexa.co/";
+                        window.location.href = "https://app.sendexa.co/login";
                       }}
                     >
-                      <span>Get Started</span>
+                      <span>Login</span>
                     </Button>
                   </motion.div>
 
@@ -693,10 +557,10 @@ export function ExaHeader() {
                       className="w-full gap-2"
                       onClick={() => {
                         closeAllMenus();
-                        window.location.href = "/demo";
+                        window.location.href = "https://app.sendexa.co/signup";
                       }}
                     >
-                      <span>Try Demo</span>
+                      <span>Get Started</span>
                     </Button>
                   </motion.div>
                 </div>

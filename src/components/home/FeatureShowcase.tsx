@@ -1,46 +1,47 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Container } from "@/layout/Container";
-import { MessageCircle, Mail, PhoneCall, CreditCard, ShieldCheck, Code2 } from "lucide-react";
+import { MessageCircle, Mail, PhoneCall,  ShieldCheck, Code2, Server } from "lucide-react";
 
 const features = [
   {
-    icon: <MessageCircle className="w-6 h-6 text-[#00c2c8]" />,
+    icon: <MessageCircle className="w-6 h-6 text-yellow-600 dark:text-yellow-300" />,
     title: "SMS & Messaging",
-    description: "Send bulk or transactional SMS with high deliverability.",
-    image: "/images/services/118976.jpg"
+    description: "Send transactional and bulk SMS with intelligent local routing.",
+    image: "/images/services/sms.jpg",
   },
   {
-    icon: <Mail className="w-6 h-6 text-[#d4b848]" />,
+    icon: <Mail className="w-6 h-6 text-green-600 dark:text-green-300" />,
     title: "Email Delivery",
-    description: "Deliver branded, reliable emails at scale.",
-    image: "/images/services/118976.jpg"
+    description: "Deliver marketing and transactional emails with high inbox rates.",
+    image: "/images/services/email.jpg",
   },
   {
-    icon: <PhoneCall className="w-6 h-6 text-[#00c2c8]" />,
+    icon: <PhoneCall className="w-6 h-6 text-blue-600 dark:text-blue-300" />,
     title: "Voice Calls",
-    description: "Automate voice notifications and interactive calls.",
-    image: "/images/services/118976.jpg"
+    description: "Trigger automated voice alerts or two-way interactive calls.",
+    image: "/images/services/voice.jpg",
   },
   {
-    icon: <CreditCard className="w-6 h-6 text-[#d4b848]" />,
-    title: "Payments",
-    description: "Collect and disburse payments securely across channels.",
-    image: "/images/services/118976.jpg"
-  },
-  {
-    icon: <ShieldCheck className="w-6 h-6 text-[#00c2c8]" />,
+    icon: <ShieldCheck className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />,
     title: "OTP & Security",
-    description: "Verify users with OTPs and 2FA for peace of mind.",
-    image: "/images/services/118976.jpg"
+    description: "Secure logins and transactions with SMS and email OTPs.",
+    image: "/images/services/otp.jpg",
   },
   {
-    icon: <Code2 className="w-6 h-6 text-[#d4b848]" />,
+    icon: <Code2 className="w-6 h-6 text-purple-600 dark:text-purple-300" />,
     title: "Developer APIs",
-    description: "Integrate fast with RESTful APIs and real-time analytics.",
-    image: "/images/services/118976.jpg"
-  }
+    description: "Powerful APIs and SDKs with real-time insights and webhooks.",
+    image: "/images/services/dev.jpg",
+  },
+  {
+    icon: <Server className="w-6 h-6 text-cyan-600 dark:text-cyan-300" />,
+    title: "SMPP Gateway",
+    description: "High-throughput SMS delivery with direct SMPP integration.",
+    image: "/images/services/smpp.jpg",
+  },
 ];
+
 
 export const FeatureShowcase: React.FC = () => {
   const [selected, setSelected] = useState(0);

@@ -1,35 +1,35 @@
 "use client";
 import React from "react";
 import { Container } from "@/layout/Container";
-import { Layers, Globe, DollarSign, Code, Activity } from "lucide-react";
+import { MessageSquareText, Globe, Code, Activity, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: <Layers className="w-8 h-8" />,
-    title: "Unified fintech + communications platform",
-    description: "All your messaging and payment needs in one place."
+    icon: <MessageSquareText className="w-8 h-8" />,
+    title: "Real-time Messaging Engine",
+    description: "Deliver SMS, emails, and OTPs with lightning-fast speed.",
   },
   {
     icon: <Globe className="w-8 h-8" />,
-    title: "Local-first infrastructure (built for Africa)",
-    description: "Optimized for reliability and speed across Africa."
+    title: "Built for Africa",
+    description: "Optimized infrastructure for Ghana and African markets.",
   },
   {
-    icon: <DollarSign className="w-8 h-8" />,
-    title: "Transparent pricing & instant onboarding",
-    description: "No hidden fees. Get started in minutes."
+    icon: <Zap className="w-8 h-8" />,
+    title: "Instant Activation",
+    description: "Start sending in minutes — no paperwork or delays.",
   },
   {
     icon: <Code className="w-8 h-8" />,
-    title: "Developer-friendly APIs",
-    description: "Simple, well-documented APIs for fast integration."
+    title: "Developer-First APIs",
+    description: "Simple RESTful APIs with detailed docs and sandbox.",
   },
   {
     icon: <Activity className="w-8 h-8" />,
-    title: "99.99% uptime with real-time delivery tracking",
-    description: "Enterprise-grade reliability and transparency."
-  }
+    title: "99.99% Uptime SLA",
+    description: "Enterprise-grade reliability with real-time status visibility.",
+  },
 ];
 
 export const WhySendexa: React.FC = () => (
@@ -52,7 +52,7 @@ export const WhySendexa: React.FC = () => (
           viewport={{ once: true }}
           className="text-lg text-gray-400 max-w-2xl mx-auto"
         >
-          The platform of choice for modern African businesses and developers.
+          Trusted by businesses building real-time communication in Ghana and across Africa.
         </motion.p>
       </div>
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">

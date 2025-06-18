@@ -10,12 +10,6 @@ export const Partners = () => {
     { name: "Ghana Commercial Bank", logo: "/logos/gcb.png" },
     { name: "Ecobank", logo: "/logos/ecobank.jpeg" },
     { name: "CalBank", logo: "/logos/CalBank.png" },
-    { name: "GhIPSS", logo: "/logos/GhIPSS.png" },
-    { name: "Absa Bank", logo: "/logos/ABSA.png" },
-    { name: "Zenith Bank", logo: "/logos/zenith.png" },
-    { name: "Fidelity Bank", logo: "/logos/fidelity.png" },
-    { name: "Standard Chartered", logo: "/logos/scb.webp" },
-    { name: "Agriculture Development Bank", logo: "/logos/adb.jpeg" },
   ]; 
 
   return (

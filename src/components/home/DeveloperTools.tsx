@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Container } from "@/layout/Container";
-import Link from "next/link";
+//import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -64,7 +64,7 @@ export const DeveloperTools: React.FC = () => (
         ))}
       </motion.div>
 
-      <motion.div 
+      {/* <motion.div 
         className="flex flex-col sm:flex-row gap-4 justify-center mt-16"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -83,13 +83,7 @@ export const DeveloperTools: React.FC = () => (
         >
           GitHub
         </Link>
-        {/* <Link 
-          href="https://www.postman.com/" 
-          className="inline-flex items-center px-6 py-3 border-2 border-[#00c2c8]/40 text-gray-200 hover:bg-gray-900 rounded-lg font-semibold transition-colors"
-        >
-          Postman Collection
-        </Link> */}
-      </motion.div>
+      </motion.div> */}
     </Container>
   </section>
 );

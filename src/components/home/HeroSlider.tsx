@@ -9,22 +9,12 @@ import {
   ShieldCheck,
   ArrowRight,
   ArrowLeft,
-  Users,
-  Eye,
-  CreditCard,
   Inbox,
-  // BarChart2,
-
-  // Star,
-} from "lucide-react";
-import {
-  MessageSquareText,
+  Server,
   LockKeyhole,
-  BadgeCent,
   MailPlus,
-  BellRing,
+  MessageSquareText,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -37,31 +27,31 @@ const HeroSlider = () => {
 
   const platformSlides = [
     {
-      title: "Ultra-Reliable SMS API for Ghana & Beyond",
+      title: "Carrier-Grade SMS API Built for Ghana",
       description:
-        "Deliver mission-critical SMS with industry-leading delivery rates, intelligent local routing, and real-time insights. Trusted by top businesses in Ghana.",
-      image: "/images/carousel/sms.jpg",
+        "Deliver mission-critical messages with intelligent local routing, high throughput, and real-time insights. Built for scale and speed.",
+      image: "/images/carousel/messaging.jpg",
       stats: [
         {
           icon: <MessageSquareText className="h-5 w-5 text-yellow-400" />,
-          text: "99% Delivery Accuracy, Even During Peak Hours",
+          text: "99% Delivery Accuracy — Even at Peak Hours",
         },
         {
           icon: <TrendingUp className="h-5 w-5 text-yellow-400" />,
-          text: "Over 10M Messages Delivered Monthly",
+          text: "10M+ Messages Delivered Monthly",
         },
       ],
       ctaPrimary: "Explore SMS API",
       ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "Why Our SMS Beats Others",
+      ctaSecondary: "Why Our SMS Is Better",
       ctaSecondaryLink: "/products/sms",
       accentColor: "from-yellow-600/20 via-yellow-700/30 to-yellow-800/40",
     },
     {
-      title: "Bulletproof OTP Verification That Never Fails",
+      title: "OTP Delivery You Can Bet Your Security On",
       description:
-        "Protect logins, payments, and accounts with instant OTP delivery via SMS, Email, or WhatsApp. Built for banks, fintechs, and scale-ups.",
-      image: "/images/carousel/otp.jpg",
+        "Protect your apps with fast and secure OTP delivery via SMS and Email. Built for fintechs, banks, and large platforms.",
+      image: "/images/carousel/61436.jpg",
       stats: [
         {
           icon: <LockKeyhole className="h-5 w-5 text-indigo-400" />,
@@ -69,98 +59,56 @@ const HeroSlider = () => {
         },
         {
           icon: <ShieldCheck className="h-5 w-5 text-indigo-400" />,
-          text: "Enterprise-Grade Encryption & Audit Trails",
+          text: "Full Encryption + Delivery Audit Trails",
         },
       ],
-      ctaPrimary: "Get OTP Protection",
+      ctaPrimary: "Get OTP API",
       ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "See OTP Use Cases",
+      ctaSecondary: "OTP Use Cases",
       ctaSecondaryLink: "/products/otp",
       accentColor: "from-indigo-600/20 via-indigo-700/30 to-indigo-800/40",
     },
     {
-      title: "Scale WhatsApp Messaging With Confidence",
+      title: "Inbox-First Email API for Serious Senders",
       description:
-        "Reach users on the app they trust most. Send transactional updates, customer support replies, and campaigns via our robust WhatsApp Business API.",
-      image: "/images/carousel/whatsapp.jpg",
-      stats: [
-        {
-          icon: <FaWhatsapp className="h-5 w-5 text-lime-400" />,
-          text: "2M+ Messages Sent Monthly With 90% Engagement",
-        },
-        {
-          icon: <Users className="h-5 w-5 text-lime-400" />,
-          text: "24/7 Delivery Monitoring & Rich Media Support",
-        },
-      ],
-      ctaPrimary: "Launch WhatsApp Messaging",
-      ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "Compare With Others",
-      ctaSecondaryLink: "/products/whatsapp",
-      accentColor: "from-lime-600/20 via-lime-700/30 to-lime-800/40",
-    },
-    {
-      title: "Local Payments Made Easy & Scalable",
-      description:
-        "From mobile money to cards and bank transfers, power your business with secure, fast, and compliant payment infrastructure tailored for Ghana.",
-      image: "/images/carousel/payments.jpg",
-      stats: [
-        {
-          icon: <BadgeCent className="h-5 w-5 text-blue-400" />,
-          text: "100+ Local & Global Payment Channels",
-        },
-        {
-          icon: <CreditCard className="h-5 w-5 text-blue-400" />,
-          text: "99.5% Transaction Success Rate – Real-Time Settlements",
-        },
-      ],
-      ctaPrimary: "Enable Payments Now",
-      ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "See All Payment Methods",
-      ctaSecondaryLink: "/products/payments",
-      accentColor: "from-blue-600/20 via-blue-700/30 to-blue-800/40",
-    },
-    {
-      title: "Email API That Lands You In The Inbox",
-      description:
-        "Power your notifications, newsletters, and campaigns with our optimized email delivery engine. Built to avoid spam folders and boost engagement.",
-      image: "/images/carousel/email.jpg",
+        "Send transactional and marketing emails that land in the inbox. Optimized for speed, reputation, and smart routing.",
+      image: "/images/carousel/118976.jpg",
       stats: [
         {
           icon: <MailPlus className="h-5 w-5 text-green-400" />,
-          text: "5M+ Emails Sent Every Month — With Confidence",
+          text: "5M+ Emails Sent Every Month — Inbox Verified",
         },
         {
           icon: <Inbox className="h-5 w-5 text-green-400" />,
-          text: "95% Inbox Placement Rate – Verified Infrastructure",
+          text: "95% Inbox Placement — SPF, DKIM, DMARC Ready",
         },
       ],
-      ctaPrimary: "Send Your First Email",
+      ctaPrimary: "Start Email API",
       ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "Email API Features",
+      ctaSecondary: "Explore Email Features",
       ctaSecondaryLink: "/products/email",
       accentColor: "from-green-600/20 via-green-700/30 to-green-800/40",
     },
     {
-      title: "Push Notifications That Actually Convert",
+      title: "SMPP Gateway for Telecom-Grade SMS Access",
       description:
-        "Send timely browser and in-app alerts users can’t ignore. Deliver high-performing engagement at scale with deep linking and smart triggers.",
-      image: "/images/carousel/push.jpg",
+        "Connect directly to Sendexa’s SMS infrastructure via SMPP for high-volume, low-latency delivery. Ideal for aggregators and enterprises.",
+      image: "/images/carousel/devs.svg",
       stats: [
         {
-          icon: <BellRing className="h-5 w-5 text-purple-400" />,
-          text: "10x Engagement Over Email – Proven Stats",
+          icon: <Server className="h-5 w-5 text-blue-400" />,
+          text: "Direct Bind to Tier-1 Routes Across Ghana",
         },
         {
-          icon: <Eye className="h-5 w-5 text-purple-400" />,
-          text: "Up to 50% Open Rate — Personalized Delivery",
+          icon: <TrendingUp className="h-5 w-5 text-blue-400" />,
+          text: "Built for 100K+ TPS and Zero Delays",
         },
       ],
-      ctaPrimary: "Add Push To Your App",
+      ctaPrimary: "Request SMPP Access",
       ctaPrimaryLink: "https://app.sendexa.co/",
-      ctaSecondary: "Push Use Cases",
-      ctaSecondaryLink: "/products/push",
-      accentColor: "from-purple-600/20 via-purple-700/30 to-purple-800/40",
+      ctaSecondary: "What Is SMPP?",
+      ctaSecondaryLink: "/products/smpp",
+      accentColor: "from-blue-600/20 via-blue-700/30 to-blue-800/40",
     },
   ];
 
@@ -243,10 +191,7 @@ const HeroSlider = () => {
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-              {/* <div
-                className={`absolute inset-0 bg-gradient-to-t ${slide.accentColor} via-gray-900/40 to-transparent md:bg-gradient-to-r md:via-gray-900/50`}
-              ></div> */}
-              {/* <div className={`absolute inset-0 bg-gradient-to-t ${slide.accentColor} via-gray-900/60 to-transparent md:bg-gradient-to-r md:via-gray-900/70`}></div> */}
+             
               <div className="absolute inset-0 bg-gray-900/70"></div>
               <div className="absolute inset-0 flex items-end pb-16 md:items-center md:pb-0">
                 <div className="container px-4 mx-auto">
@@ -361,7 +306,7 @@ const HeroSlider = () => {
           --swiper-pagination-bullet-size: 10px;
           --swiper-pagination-bullet-inactive-color: white;
           --swiper-pagination-bullet-inactive-opacity: 0.4;
-          --swiper-pagination-color: theme(colors.teal.500);
+          --swiper-pagination-color: theme(colors.amber.500);
           --swiper-pagination-bullet-horizontal-gap: 4px;
         }
 
@@ -390,7 +335,7 @@ const HeroSlider = () => {
 
         .swiper-pagination-bullet-active {
           transform: scale(1.2);
-          box-shadow: 0 0 8px rgba(74, 144, 226, 0.7);
+          box-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
         }
 
         @keyframes float {
@@ -419,21 +364,6 @@ const HeroSlider = () => {
 
         .animate-float-delay {
           animation: float-delay 7s ease-in-out infinite 1s;
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
         }
 
         @media (max-width: 640px) {
