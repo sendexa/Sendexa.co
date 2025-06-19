@@ -8,31 +8,6 @@ import { FinalCTA } from "@/components/email/FinalCTA";
 import { Metadata } from "next";
 
 
-// export const metadata: Metadata = {
-//   title: "Sendexa Email API – Fast, Secure & Scalable Email Delivery",
-//   description:
-//     "Send, receive, and track emails reliably at scale with Sendexa’s Email API. Modern, secure, developer-friendly, and affordable email infrastructure for businesses in Ghana.",
-//   openGraph: {
-//     title: "Sendexa Email API – Fast, Secure & Scalable Email Delivery",
-//     description:
-//       "Enhance your business communication with Sendexa’s Email API. Experience reliable inbox-first delivery, robust security, and easy integration.",
-//     url: "https://sendexa.co/products/email",
-//     images: [
-//       {
-//         url: "https://sendexa.co/og/email-api.png",
-//         alt: "Sendexa Email API Preview",
-//       },
-//     ],
-//     siteName: "Sendexa",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Sendexa Email API – Fast, Secure & Scalable Email Delivery",
-//     description:
-//       "Reliable and secure email delivery API for transactional and marketing emails tailored for Ghanaian businesses.",
-//     images: ["https://sendexa.co/og/email-api.png"],
-//   },
-// };
 
 export const metadata: Metadata = {
   title: "Best Email API in Ghana | Sendexa – 99% Inbox Rate & 1s Delivery",

@@ -6,31 +6,6 @@ import Testimonials from "@/components/sms/Testimonials";
 import CtaSection from "@/components/sms/CtaSection";
 import { Metadata } from "next";
 
-// export const metadata: Metadata = {
-//   title: "Sendexa SMS API – Fast, Secure & Affordable Messaging in Ghana",
-//   description:
-//     "Deliver SMS across Ghana with Sendexa’s modern API. Built for speed, security, and developers. Intelligent routing. Unmatched affordability.",
-//   openGraph: {
-//     title: "Sendexa SMS API – Fast, Secure & Affordable Messaging in Ghana",
-//     description:
-//       "A powerful, modern SMS API built for speed and reliability. Reach users instantly across Ghana with intelligent routing and unbeatable pricing.",
-//     url: "https://sendexa.co/products/sms",
-//     images: [
-//       {
-//         url: "https://sendexa.co/og/sms-api.png",
-//         alt: "Sendexa SMS API Preview",
-//       },
-//     ],
-//     siteName: "Sendexa",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Sendexa SMS API – Fast, Secure & Affordable Messaging in Ghana",
-//     description:
-//       "Send SMS easily and reliably. Built for developers, optimized for delivery, and priced for scale.",
-//     images: ["https://sendexa.co/og/sms-api.png"],
-//   },
-// };
 
 export const metadata: Metadata = {
   title: "Best SMS API in Ghana | Sendexa - 99.9% Uptime & Bulk SMS Solutions",

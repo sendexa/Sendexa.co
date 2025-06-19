@@ -8,31 +8,6 @@ import Testimonials from '@/components/otp/Testimonials';
 import CtaSection from '@/components/otp/CtaSection';
 import { Metadata } from "next";
 
-// export const metadata: Metadata = {
-//   title: "Sendexa OTP API – Secure, Fast & Developer-Friendly OTP Delivery",
-//   description:
-//     "Protect your apps with Sendexa OTP API. Real-time OTP delivery via SMS, Email, or WhatsApp — fast, secure, and affordable for developers in Ghana.",
-//   openGraph: {
-//     title: "Sendexa OTP API – Secure, Fast & Developer-Friendly OTP Delivery",
-//     description:
-//       "Ensure user authentication with Sendexa's OTP API. Deliver OTPs instantly over SMS, Email, and WhatsApp with the highest security standards.",
-//     url: "https://sendexa.co/products/otp",
-//     images: [
-//       {
-//         url: "https://sendexa.co/og/otp-api.png",
-//         alt: "Sendexa OTP API Preview",
-//       },
-//     ],
-//     siteName: "Sendexa",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Sendexa OTP API – Secure, Fast & Developer-Friendly OTP Delivery",
-//     description:
-//       "Real-time OTP delivery made simple and secure. Build trust with fast OTPs via SMS, Email, and WhatsApp.",
-//     images: ["https://sendexa.co/og/otp-api.png"],
-//   },
-// };
 
 export const metadata: Metadata = {
   title: "Ghana's Fastest OTP API | 99.9% Delivery Rate in <1 Second | Sendexa",
