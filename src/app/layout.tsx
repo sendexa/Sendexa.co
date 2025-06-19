@@ -74,7 +74,7 @@ export const metadata: Metadata = {
       color: "#3a0ca3",
     },
   },
-  themeColor: "#3a0ca3",
+  // themeColor: "#3a0ca3",
   verification: {
     google: "your-google-verification-code",
   },

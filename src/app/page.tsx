@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import Homepage from "@/components/home/Homepage";
+//import Homepage from "@/components/home/Homepage";
+import HomePage from "@/components/core/HomePage";
 
 
 export const metadata: Metadata = {
-  title: "Sendexa | Africa's Most Reliable Communication APIs – SMS, WhatsApp, Email & Payments",
-  description: "Powering 10,000+ businesses in Ghana with enterprise-grade SMS, WhatsApp, Email & Payments APIs. 99.9% uptime, fastest delivery speeds, and developer-first tools. Launch in 15 minutes.",
+  title: "Sendexa | Africa's Most Reliable Communication APIs – SMS, WhatsApp, Email",
+  description: "Powering 10,000+ businesses in Ghana with enterprise-grade SMS, WhatsApp, Email APIs. 99.9% uptime, fastest delivery speeds, and developer-first tools. Launch in 15 minutes.",
   keywords: [
     "Sendexa",
     "Ghana SMS API",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     "Ghana Email API",
   ],
   openGraph: {
-    title: "Sendexa | All-in-One Platform for Communications & Payments in Africa",
+    title: "Sendexa | All-in-One Platform for Communications in Africa",
     description: "Everything to engage customers and collect payments: Messaging APIs, Payment Gateway, and AI-powered tools. Get 10,000 free SMS/WhatsApp credits on signup.",
     url: "https://sendexa.co",
     images: [
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
         url: "https://sendexa.co/og/homepage-2024.png",
         width: 1200,
         height: 630,
-        alt: "Sendexa Platform Dashboard – Manage SMS, WhatsApp, Email & Payments in One Place",
+        alt: "Sendexa Platform Dashboard – Manage SMS, WhatsApp, Email in One Place",
       },
     ],
     siteName: "Sendexa",
@@ -92,7 +93,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
-      <Homepage />
+      {/* <Homepage /> */}
+      <HomePage />
       
       {/* Add more sections as needed */}
     </div>

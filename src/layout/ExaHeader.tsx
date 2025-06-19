@@ -350,10 +350,10 @@ export function ExaHeader() {
           <div className="hidden lg:flex items-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                variant="secondary"
-                className="gap-2 text-white"
+                variant="outline"
+                className="gap-2"
                 onClick={() =>
-                  (window.location.href = "https://app.sendexa.co/")
+                  (window.location.href = "https://app.sendexa.co/login")
                 }
               >
                 <span>Login</span>
@@ -363,9 +363,9 @@ export function ExaHeader() {
               <Button
                 variant="primary"
                 className="gap-2"
-                onClick={() => (window.location.href = "/demo")}
+                onClick={() => (window.location.href = "https://app.sendexa.co/signup")}
               >
-                <span>Get Started</span>
+                <span>Sign Up</span>
               </Button>
             </motion.div>
           </div>
@@ -537,7 +537,7 @@ export function ExaHeader() {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Button
-                      variant="secondary"
+                      variant="outline"
                       className="w-full gap-2"
                       onClick={() => {
                         closeAllMenus();
@@ -560,7 +560,7 @@ export function ExaHeader() {
                         window.location.href = "https://app.sendexa.co/signup";
                       }}
                     >
-                      <span>Get Started</span>
+                      <span>Sign Up</span>
                     </Button>
                   </motion.div>
                 </div>
