@@ -1,4 +1,5 @@
-import ProductHero from "@/components/email/ProductHero";
+//import ProductHero from "@/components/email/ProductHero";
+import {EmailHero} from "@/components/email/EmailHero";
 import { FeaturesGrid } from "@/components/email/FeaturesGrid";
 import { ComparisonSection } from "@/components/email/ComparisonSection";
 import { IntegrationSection } from "@/components/email/IntegrationSection";
@@ -74,7 +75,9 @@ export const metadata: Metadata = {
 export default function EmailApiPage() {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
-      <ProductHero />
+      <EmailHero />
+      
+      {/* <ProductHero /> */}
       <FeaturesGrid />
       <ComparisonSection />
       <IntegrationSection />

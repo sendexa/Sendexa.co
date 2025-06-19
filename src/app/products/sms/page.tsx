@@ -1,9 +1,10 @@
-import ProductHero from "@/components/sms/ProductHero";
+//import ProductHero from "@/components/sms/ProductHero";
 import Features from "@/components/sms/Features";
 import Integrations from "@/components/sms/Integrations";
 import Pricing from "@/components/sms/Pricing";
 import Testimonials from "@/components/sms/Testimonials";
 import CtaSection from "@/components/sms/CtaSection";
+import { SMSHero } from "@/components/sms/SMSHero";
 import { Metadata } from "next";
 
 
@@ -70,7 +71,8 @@ export const metadata: Metadata = {
 export default function SmsApiPage() {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
-      <ProductHero />
+      <SMSHero />
+      {/* <ProductHero /> */}
       <Features />
       <Integrations />
       <Pricing />

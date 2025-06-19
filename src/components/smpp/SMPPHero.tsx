@@ -56,7 +56,7 @@ export const SMPPHero = () => {
       </div>
 
       <Container>
-        <div className="relative z-10 py-24">
+        <div className="relative z-10 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
             <motion.div 

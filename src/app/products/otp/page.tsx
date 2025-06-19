@@ -1,4 +1,5 @@
-import ProductHero from "@/components/otp/ProductHero";
+//import ProductHero from "@/components/otp/ProductHero";
+import { OTPHero } from "@/components/otp/OTPHero";
 import Features from '@/components/otp/Features';
 import Channels from '@/components/otp/Channels';
 import Integration from '@/components/otp/Integration';
@@ -74,7 +75,8 @@ export const metadata: Metadata = {
 export default function OtpApiPage() {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
-      <ProductHero />
+      <OTPHero />
+      {/* <ProductHero /> */}
       <Features />
       <Channels />
       <Integration />
