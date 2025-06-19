@@ -1,33 +1,47 @@
+"use client";
+
+import { Users2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Container } from "@/layout/Container";
-import Image from "next/image";
 
 export default function TeamHero() {
   return (
-    <section className="relative py-24 md:py-28 lg:py-32 overflow-hidden bg-gray-900">
-      {/* Dark overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/60 z-10" />
-
-      {/* Background image */}
-      <div className="absolute inset-0 overflow-hidden">
-        <Image
-          src="/images/hero-3.png"
-          alt="Sendexa leadership team meeting"
-          fill
-          className="object-cover scale-110 transition-transform duration-1000 ease-out"
-          priority
-          quality={100}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
+      {/* Glowing background pulse */}
+      <div className="absolute top-1/2 left-1/2 w-[460px] h-[460px] bg-[#fcd116]/20 rounded-full blur-3xl animate-pulse transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" />
 
       <Container>
-        <div className="relative z-20 max-w-3xl mx-auto text-center px-4">
-          <h1 className="text-3xl font-bold mb-4 md:text-4xl lg:text-5xl text-white leading-tight drop-shadow-lg">
-            The Visionaries Behind <span className="text-[#a18722]">Sendexa</span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed drop-shadow-md">
-            {/* Meet the team shaping Africa’s digital future—building a seamless ecosystem for communications, payments, and innovation. */}
-            Meet the team driving Africa&apos;s future—one line of code, one transaction, and one connection at a time. Together, we&apos;re building a smarter, faster, and more inclusive ecosystem for communications, payments, and growth across the continent.
-          </p>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 text-yellow-300 rounded-full mb-6"
+          >
+            <Users2 className="w-5 h-5" />
+            <span className="font-medium">Our Team</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+          >
+            Meet the Visionaries Behind Sendexa
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
+          >
+            A passionate and diverse team on a mission to power Africa’s communication infrastructure.
+          </motion.p>
         </div>
       </Container>
     </section>

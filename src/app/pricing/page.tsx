@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { PricingSection } from "./components/PricingSection";
-import PageHeader from "@/components/common/PageHeader";
+import PricingHero from "./components/PricingHero";
+//import PageHeader from "@/components/common/PageHeader";
 import { CTA } from "@/components/common/CTA";
 
 export const metadata: Metadata = {
@@ -21,11 +22,8 @@ export default function Pricing() {
 
 return (
     <>
-      <PageHeader
-        title="Pricing Plans"
-        description="Simple, transparent pricing that grows with your business. No hidden fees."
-        backgroundImage="https://picsum.photos/seed/about-header/1920/400"
-      />
+      <PricingHero />
+      
       <PricingSection />
         <CTA />
     </>

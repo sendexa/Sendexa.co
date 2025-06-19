@@ -13,6 +13,13 @@ import { CookiesBanner } from "@/components/common/CookiesBanner";
 import Script from "next/script";
 import { TrackingScripts } from "@/components/common/TrackingScripts";
 
+// import "prismjs/components/prism-typescript";
+// import "prismjs/components/prism-javascript";
+// import "prismjs/components/prism-json";
+// import "prismjs/components/prism-bash";
+
+
+
 const outfit = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],

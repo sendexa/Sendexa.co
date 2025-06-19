@@ -14,7 +14,7 @@ interface ExecutiveTeamProps {
 
 export default function ExecutiveTeam({ executives }: ExecutiveTeamProps) {
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-15 bg-gray-100">
       <Container>
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4 md:text-4xl text-gray-900">

@@ -36,24 +36,10 @@ export function PricingSection() {
       variants={containerVariants}
       className="container mx-auto px-4 py-12"
     >
-      <motion.div variants={itemVariants} className="text-center mb-12">
-        {/* <motion.h1 
-          className="text-4xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Pricing Plans
-        </motion.h1>
-        <motion.p 
-          className="text-lg text-gray-600 max-w-2xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          Simple, transparent pricing that grows with your business. No hidden fees.
-        </motion.p> */}
-      </motion.div>
+      <motion.div
+        variants={itemVariants}
+        className="text-center mb-12"
+      ></motion.div>
 
       <motion.div variants={itemVariants}>
         <PricingSelector
@@ -62,12 +48,9 @@ export function PricingSection() {
         />
       </motion.div>
 
-      <motion.div 
-        variants={itemVariants}
-        className="mb-12"
-      >
-        <motion.h2 
-          className="text-2xl font-semibold text-center text-teal-600 mb-4"
+      <motion.div variants={itemVariants} className="mb-12">
+        <motion.h2
+          className="text-2xl font-semibold text-center text-blue-600 mb-4"
           key={selectedService}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,14 +58,16 @@ export function PricingSection() {
         >
           {services.find((s) => s.id === selectedService)?.name} Pricing
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-center text-gray-500 max-w-3xl mx-auto"
           key={`desc-${selectedService}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Choose the perfect plan for your {services.find((s) => s.id === selectedService)?.name.toLowerCase()} needs.
+          Choose the perfect plan for your{" "}
+          {services.find((s) => s.id === selectedService)?.name.toLowerCase()}{" "}
+          needs.
         </motion.p>
       </motion.div>
 

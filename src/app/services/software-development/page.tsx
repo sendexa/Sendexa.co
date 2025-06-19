@@ -1,12 +1,13 @@
 
 import { Metadata } from 'next';
-import ProductHero from './components/ProductHero';
+//import ProductHero from './components/ProductHero';
 import DevelopmentFeatures from './components/DevelopmentFeatures';
 import ProcessSection from './components/ProcessSection';
 import UseCases from './components/UseCases';
 import TechnologyStack from './components/TechnologyStack';
 import PricingSection from './components/PricingSection';
 import { CTA } from '@/components/common/CTA';
+import CustomSoftwareHero from './components/CustomSoftwareHero';
 
 export const metadata: Metadata = {
   title: "Sendexa Software Development | Custom Web & Mobile Applications",
@@ -59,7 +60,8 @@ export const metadata: Metadata = {
 export default function SoftwareDevelopmentPage() {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen">
-      <ProductHero />
+      <CustomSoftwareHero />
+      {/* <ProductHero /> */}
       <DevelopmentFeatures />
       <ProcessSection />
       <UseCases />
