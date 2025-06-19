@@ -54,7 +54,7 @@ const Pricing = () => {
 
   return (
     // <section className="py-15 bg-gray-50">
-    <section className="py-15 bg-gradient-to-b from-[#fdfcf7] via-[#fefcea] to-white">
+    <section className="py-15 bg-gradient-to-b from-yellow-50 via-yellow-100 to-white">
 
       <div className="container mx-auto px-4">
         <motion.div

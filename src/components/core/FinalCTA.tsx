@@ -25,15 +25,21 @@ export function FinalCTA() {
           </motion.div>
 
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
+          {/* <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
             Power Your Business With{" "}
             <span className="text-[#fcd116]">Africa&apos;s Communication API</span>
+          </h2> */}
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
+            Build, Send, and Scale with{" "}
+            <span className="text-[#fcd116]">
+              Africa&apos;s Communication API
+            </span>
           </h2>
 
           {/* Description */}
           <p className="text-white/80 text-base mb-6">
-            Trusted by startups and enterprises across Africa for reliable messaging
-            and payments infrastructure.
+            Trusted by startups and enterprises across Africa for reliable
+            messaging and payments infrastructure.
           </p>
 
           {/* Buttons - side by side even on mobile */}

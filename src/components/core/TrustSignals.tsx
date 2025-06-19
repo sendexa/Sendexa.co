@@ -13,7 +13,7 @@ export const TrustSignals = () => {
   ];
 
   return (
-    <section className="py-15 bg-gradient-to-b from-[#fefcea] to-white">
+    <section className="py-15 bg-gradient-to-b from-rose-50 via-orange-100 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

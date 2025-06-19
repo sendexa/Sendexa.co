@@ -33,7 +33,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     // <section className="py-15 bg-white">
-    <section className="py-15 bg-gradient-to-b from-[#f6f9ff] via-white to-[#fdfdfd]">
+    <section className="py-15 bg-gradient-to-b from-purple-50 via-violet-100 to-white">
 
       <Container>
         <div className="text-center mb-16">

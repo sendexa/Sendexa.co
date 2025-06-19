@@ -55,7 +55,7 @@ export default function CoverageMap() {
   };
 
   return (
-    <section className="py-15 bg-[#ebeefc]">
+    <section className="py-15 bg-gradient-to-b from-sky-50 via-sky-100 to-white">
       <Container>
       <div className="container mx-auto">
         <div className="text-center mb-12">

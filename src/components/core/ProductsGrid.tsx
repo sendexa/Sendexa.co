@@ -48,7 +48,7 @@ const products = [
 
 export default function ProductsGrid() {
   return (
-    <section className="py-15 bg-gradient-to-b from-[#dff5ef] to-white">
+    <section className="py-15 bg-gradient-to-b from-purple-50 via-violet-100 to-white">
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#111e4f] mb-2">
