@@ -50,7 +50,7 @@ export default function CustomerStories() {
 
   return (
     // <section className="py-20 bg-white">
-      <section className="py-20 bg-gradient-to-b from-pink-50 via-pink-100 to-white">
+      <section className="py-15 bg-gradient-to-b from-pink-50 via-pink-100 to-white">
 
       <Container>
         <motion.div
