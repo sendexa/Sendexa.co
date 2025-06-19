@@ -330,6 +330,27 @@
           "Email automation with Mailgun integrations",
           "Voice API for IVR and call masking"
         ]
+      },
+      {
+  "type": "code",
+  "language": "javascript", 
+  "code": "console.log('Hello Sendexa!');"
+},
+      {
+        "type": "paragraph",
+        "text": "2026:"
+      },
+      {
+        "type": "bullets",
+        "items": [
+          "AI-powered analytics dashboard",
+          "Expanded regional coverage across Africa",
+          "Partnerships with leading telecoms for better rates"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "We’re building the future of communication in Africa—stay tuned!"
       }
     ],
     "author": {
