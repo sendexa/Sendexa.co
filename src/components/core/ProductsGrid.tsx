@@ -1,50 +1,6 @@
-import { LockIcon, CheckCircle, MessageCircleIcon, BotIcon, MailIcon, MessageSquareIcon, PhoneCallIcon, RadioIcon, WavesIcon, Megaphone } from "lucide-react";
+import { LockIcon, CheckCircle, MessageCircleIcon, BotIcon, MailIcon,  PhoneCallIcon, RadioIcon,  Megaphone, Hash } from "lucide-react";
 import { Container } from "@/layout/Container";
-
-// const products = [
-//   {
-//     icon: <MessageCircleIcon className="w-6 h-6" />,
-//     name: "SMS API",
-//     description: "Bulk SMS with direct African carrier connections",
-//     features: ["Ghana numbers first", "99% deliverability", "Real-time analytics"],
-//     color: "bg-blue-100 text-blue-800",
-//   },
-//   {
-//     icon: <LockIcon className="w-6 h-6" />,
-//     name: "OTP Service",
-//     description: "Secure authentication for African users",
-//     features: ["1-tap verify", "Retry logic", "Fraud detection"],
-//     color: "bg-green-100 text-green-800",
-//   },
-//   {
-//     icon: <MessageCircleIcon className="w-6 h-6" />,
-//     name: "Voice API",
-//     description: "Reliable voice calls with local numbers",
-//     features: ["IVR support", "Call recording", "Global reach"],
-//     color: "bg-yellow-100 text-yellow-800",
-//   },
-//   {
-//     icon: <LockIcon className="w-6 h-6" />,
-//     name: "Email API",
-//     description: "Transactional and marketing emails made easy",
-//     features: ["High deliverability", "Template management", "Analytics"],
-//     color: "bg-purple-100 text-purple-800",
-//   },
-//   {
-//     icon: <MessageCircleIcon className="w-6 h-6" />,
-//     name: "WhatsApp API",
-//     description: "Engage users on their favorite messaging app",
-//     features: ["Rich media support", "Quick replies", "Broadcast lists"],
-//     color: "bg-pink-100 text-pink-800",
-//   },
-//   {
-//     icon: <LockIcon className="w-6 h-6" />,
-//     name: "Chatbot API",
-//     description: "Automate customer interactions with AI",
-//     features: ["Multi-channel support", "NLP capabilities", "Analytics"],
-//     color: "bg-teal-100 text-teal-800",
-//   },
-// ];
+import { FaWhatsapp } from "react-icons/fa";
 
 
 
@@ -78,7 +34,7 @@ const products = [
     color: "bg-purple-100 text-purple-800",
   },
   {
-    icon: <MessageSquareIcon className="w-6 h-6" />,
+    icon: <FaWhatsapp className="w-6 h-6" />,
     name: "WhatsApp API",
     description: "Engage users on WhatsApp with rich message support",
     features: ["Media templates", "Quick replies", "Two-way messaging"],
@@ -92,7 +48,7 @@ const products = [
     color: "bg-teal-100 text-teal-800",
   },
   {
-    icon: <WavesIcon className="w-6 h-6" />,
+    icon: <Hash className="w-6 h-6" />,
     name: "USSD API",
     description: "Deploy interactive USSD menus for mobile users",
     features: ["Real-time sync", "Multi-level menus", "Mobile money flows"],
