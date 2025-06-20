@@ -1,5 +1,52 @@
-import { LockIcon, CheckCircle, MessageCircleIcon } from "lucide-react";
+import { LockIcon, CheckCircle, MessageCircleIcon, BotIcon, MailIcon, MessageSquareIcon, PhoneCallIcon, RadioIcon, WavesIcon, Megaphone } from "lucide-react";
 import { Container } from "@/layout/Container";
+
+// const products = [
+//   {
+//     icon: <MessageCircleIcon className="w-6 h-6" />,
+//     name: "SMS API",
+//     description: "Bulk SMS with direct African carrier connections",
+//     features: ["Ghana numbers first", "99% deliverability", "Real-time analytics"],
+//     color: "bg-blue-100 text-blue-800",
+//   },
+//   {
+//     icon: <LockIcon className="w-6 h-6" />,
+//     name: "OTP Service",
+//     description: "Secure authentication for African users",
+//     features: ["1-tap verify", "Retry logic", "Fraud detection"],
+//     color: "bg-green-100 text-green-800",
+//   },
+//   {
+//     icon: <MessageCircleIcon className="w-6 h-6" />,
+//     name: "Voice API",
+//     description: "Reliable voice calls with local numbers",
+//     features: ["IVR support", "Call recording", "Global reach"],
+//     color: "bg-yellow-100 text-yellow-800",
+//   },
+//   {
+//     icon: <LockIcon className="w-6 h-6" />,
+//     name: "Email API",
+//     description: "Transactional and marketing emails made easy",
+//     features: ["High deliverability", "Template management", "Analytics"],
+//     color: "bg-purple-100 text-purple-800",
+//   },
+//   {
+//     icon: <MessageCircleIcon className="w-6 h-6" />,
+//     name: "WhatsApp API",
+//     description: "Engage users on their favorite messaging app",
+//     features: ["Rich media support", "Quick replies", "Broadcast lists"],
+//     color: "bg-pink-100 text-pink-800",
+//   },
+//   {
+//     icon: <LockIcon className="w-6 h-6" />,
+//     name: "Chatbot API",
+//     description: "Automate customer interactions with AI",
+//     features: ["Multi-channel support", "NLP capabilities", "Analytics"],
+//     color: "bg-teal-100 text-teal-800",
+//   },
+// ];
+
+
 
 const products = [
   {
@@ -12,39 +59,61 @@ const products = [
   {
     icon: <LockIcon className="w-6 h-6" />,
     name: "OTP Service",
-    description: "Secure authentication for African users",
+    description: "Secure 2FA for African users with instant code delivery",
     features: ["1-tap verify", "Retry logic", "Fraud detection"],
     color: "bg-green-100 text-green-800",
   },
   {
-    icon: <MessageCircleIcon className="w-6 h-6" />,
+    icon: <PhoneCallIcon className="w-6 h-6" />,
     name: "Voice API",
-    description: "Reliable voice calls with local numbers",
-    features: ["IVR support", "Call recording", "Global reach"],
+    description: "Reliable voice calling with IVR and call tracking",
+    features: ["IVR support", "Call recording", "Local caller ID"],
     color: "bg-yellow-100 text-yellow-800",
   },
   {
-    icon: <LockIcon className="w-6 h-6" />,
+    icon: <MailIcon className="w-6 h-6" />,
     name: "Email API",
-    description: "Transactional and marketing emails made easy",
-    features: ["High deliverability", "Template management", "Analytics"],
+    description: "Transactional and marketing emails with advanced tracking",
+    features: ["High deliverability", "Template engine", "Open & click analytics"],
     color: "bg-purple-100 text-purple-800",
   },
   {
-    icon: <MessageCircleIcon className="w-6 h-6" />,
+    icon: <MessageSquareIcon className="w-6 h-6" />,
     name: "WhatsApp API",
-    description: "Engage users on their favorite messaging app",
-    features: ["Rich media support", "Quick replies", "Broadcast lists"],
+    description: "Engage users on WhatsApp with rich message support",
+    features: ["Media templates", "Quick replies", "Two-way messaging"],
     color: "bg-pink-100 text-pink-800",
   },
   {
-    icon: <LockIcon className="w-6 h-6" />,
+    icon: <BotIcon className="w-6 h-6" />,
     name: "Chatbot API",
-    description: "Automate customer interactions with AI",
-    features: ["Multi-channel support", "NLP capabilities", "Analytics"],
+    description: "Automate conversations using AI-powered bots",
+    features: ["Omnichannel", "Intent detection", "24/7 automation"],
     color: "bg-teal-100 text-teal-800",
   },
+  {
+    icon: <WavesIcon className="w-6 h-6" />,
+    name: "USSD API",
+    description: "Deploy interactive USSD menus for mobile users",
+    features: ["Real-time sync", "Multi-level menus", "Mobile money flows"],
+    color: "bg-orange-100 text-orange-800",
+  },
+  {
+    icon: <Megaphone className="w-6 h-6" />,
+    name: "Campaign Manager",
+    description: "Run SMS, email, and voice campaigns in one place",
+    features: ["Audience segmentation", "Scheduling", "Multi-channel"],
+    color: "bg-red-100 text-red-800",
+  },
+  {
+    icon: <RadioIcon className="w-6 h-6" />,
+    name: "Number Lookup API",
+    description: "Identify and validate phone numbers instantly",
+    features: ["HLR lookup", "Ported number detection", "Carrier info"],
+    color: "bg-indigo-100 text-indigo-800",
+  },
 ];
+
 
 export default function ProductsGrid() {
   return (

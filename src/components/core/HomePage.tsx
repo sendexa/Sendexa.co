@@ -13,17 +13,6 @@ import { FinalCTA } from "./FinalCTA";
 export default function Homepage() {
   return (
     <div className="bg-white">
-      {/* <HeroSlider />
-      <TrustSignals />
-      <ProductsGrid />
-      <CoverageMap />
-      <HowItWorks />
-      <DevExperience />
-      <PricingTable />
-      <ResellerBanner />
-      <CustomerStories />
-      <FinalCTA /> */}
-
       <HeroSlider />
       <TrustSignals />
       <ProductsGrid />
