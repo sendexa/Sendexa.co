@@ -10,13 +10,16 @@ import PricingTable from "./PricingTable";
 import CustomerStories from "./CustomerStories";
 import { FinalCTA } from "./FinalCTA";
 
+
 export default function Homepage() {
   return (
     <div className="bg-white">
       <HeroSlider />
       <TrustSignals />
       <ProductsGrid />
-      <CoverageMap />
+   
+      
+       <CoverageMap /> 
       <CustomerStories />
       <HowItWorks />
       <DevExperience />

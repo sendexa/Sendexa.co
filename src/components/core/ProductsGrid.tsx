@@ -1,15 +1,27 @@
-import { LockIcon, CheckCircle, MessageCircleIcon, BotIcon, MailIcon,  PhoneCallIcon, RadioIcon,  Megaphone, Hash } from "lucide-react";
+import {
+  LockIcon,
+  CheckCircle,
+  MessageCircleIcon,
+  BotIcon,
+  MailIcon,
+  // PhoneCallIcon,
+  // RadioIcon,
+  Megaphone,
+  // Hash,
+} from "lucide-react";
 import { Container } from "@/layout/Container";
 import { FaWhatsapp } from "react-icons/fa";
-
-
 
 const products = [
   {
     icon: <MessageCircleIcon className="w-6 h-6" />,
     name: "SMS API",
     description: "Bulk SMS with direct African carrier connections",
-    features: ["Ghana numbers first", "99% deliverability", "Real-time analytics"],
+    features: [
+      "Ghana numbers first",
+      "99% deliverability",
+      "Real-time analytics",
+    ],
     color: "bg-blue-100 text-blue-800",
   },
   {
@@ -19,18 +31,22 @@ const products = [
     features: ["1-tap verify", "Retry logic", "Fraud detection"],
     color: "bg-green-100 text-green-800",
   },
-  {
-    icon: <PhoneCallIcon className="w-6 h-6" />,
-    name: "Voice API",
-    description: "Reliable voice calling with IVR and call tracking",
-    features: ["IVR support", "Call recording", "Local caller ID"],
-    color: "bg-yellow-100 text-yellow-800",
-  },
+  // {
+  //   icon: <PhoneCallIcon className="w-6 h-6" />,
+  //   name: "Voice API",
+  //   description: "Reliable voice calling with IVR and call tracking",
+  //   features: ["IVR support", "Call recording", "Local caller ID"],
+  //   color: "bg-yellow-100 text-yellow-800",
+  // },
   {
     icon: <MailIcon className="w-6 h-6" />,
     name: "Email API",
     description: "Transactional and marketing emails with advanced tracking",
-    features: ["High deliverability", "Template engine", "Open & click analytics"],
+    features: [
+      "High deliverability",
+      "Template engine",
+      "Open & click analytics",
+    ],
     color: "bg-purple-100 text-purple-800",
   },
   {
@@ -47,13 +63,13 @@ const products = [
     features: ["Omnichannel", "Intent detection", "24/7 automation"],
     color: "bg-teal-100 text-teal-800",
   },
-  {
-    icon: <Hash className="w-6 h-6" />,
-    name: "USSD API",
-    description: "Deploy interactive USSD menus for mobile users",
-    features: ["Real-time sync", "Multi-level menus", "Mobile money flows"],
-    color: "bg-orange-100 text-orange-800",
-  },
+  // {
+  //   icon: <Hash className="w-6 h-6" />,
+  //   name: "USSD API",
+  //   description: "Deploy interactive USSD menus for mobile users",
+  //   features: ["Real-time sync", "Multi-level menus", "Mobile money flows"],
+  //   color: "bg-orange-100 text-orange-800",
+  // },
   {
     icon: <Megaphone className="w-6 h-6" />,
     name: "Campaign Manager",
@@ -61,15 +77,14 @@ const products = [
     features: ["Audience segmentation", "Scheduling", "Multi-channel"],
     color: "bg-red-100 text-red-800",
   },
-  {
-    icon: <RadioIcon className="w-6 h-6" />,
-    name: "Number Lookup API",
-    description: "Identify and validate phone numbers instantly",
-    features: ["HLR lookup", "Ported number detection", "Carrier info"],
-    color: "bg-indigo-100 text-indigo-800",
-  },
+  // {
+  //   icon: <RadioIcon className="w-6 h-6" />,
+  //   name: "Number Lookup API",
+  //   description: "Identify and validate phone numbers instantly",
+  //   features: ["HLR lookup", "Ported number detection", "Carrier info"],
+  //   color: "bg-indigo-100 text-indigo-800",
+  // },
 ];
-
 
 export default function ProductsGrid() {
   return (
@@ -100,7 +115,9 @@ export default function ProductsGrid() {
               <h3 className="text-xl font-semibold text-[#111e4f] mb-2">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+              <p className="text-sm text-gray-600 mb-4">
+                {product.description}
+              </p>
 
               <ul className="space-y-2 text-sm">
                 {product.features.map((f) => (
