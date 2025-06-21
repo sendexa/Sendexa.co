@@ -8,7 +8,7 @@ export const TrustSignals = () => {
     { name: "Telecel", logo: "/logos/telecel.png" },
     { name: "AirtelTigo", logo: "/logos/ATGhana.webp" },
     { name: "Absa Bank", logo: "/logos/ABSA.png" },
-    { name: "Xtopay", logo: "/logos/favicon.png" },
+    { name: "Xtopay", logo: "/logos/xtopay.png" },
     { name: "Hubtel", logo: "/logos/hubtel.png" },
   ];
 
