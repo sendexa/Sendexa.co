@@ -110,7 +110,7 @@ export const ExaFooter = () => {
               <Link href="/" className="flex items-center mb-2">
                 {" "}
                 <Image
-                  src="/logos/exaweb.png"
+                  src="/logos/sendexa-white-logo.png"
                   width={170}
                   height={125}
                   alt="Sendexa Logo"
@@ -154,7 +154,7 @@ export const ExaFooter = () => {
                     whileTap={{ scale: 0.9 }}
                     className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 shadow-sm hover:shadow-blue-500/20 transition-all"
                   >
-                    <social.icon className="h-5 w-5 text-gray-300 hover:text-[#fcd116] transition-colors" />
+                    <social.icon className="h-5 w-5 text-gray-300 hover:text-[#d63384] transition-colors" />
                   </motion.a>
                 ))}
               </motion.div>
@@ -180,10 +180,10 @@ export const ExaFooter = () => {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-sm text-gray-400 hover:text-[#fcd116] transition-colors flex items-center group"
+                          className="text-sm text-gray-400 hover:text-[#d63384] transition-colors flex items-center group"
                         >
                           <motion.span
-                            whileHover={{ x: 5, color: "#fcd116" }}
+                            whileHover={{ x: 5, color: "#d63384" }}
                             transition={{ type: "spring", stiffness: 300 }}
                             className="inline-flex items-center gap-1"
                           >
@@ -191,7 +191,7 @@ export const ExaFooter = () => {
                             <motion.span
                               initial={{ opacity: 0, width: 0 }}
                               whileHover={{ opacity: 1, width: "0.5rem" }}
-                              className="block h-px bg-blue-text-[#fcd116]"
+                              className="block h-px bg-blue-text-[#d63384]"
                             />
                           </motion.span>
                         </Link>
@@ -224,7 +224,7 @@ export const ExaFooter = () => {
               aria-label={`Copyright ${currentYear} Sendexa, Inc.`}
             >
               &copy; {currentYear}{" "}
-              <span className="font-medium text-[#fcd116] transition-colors duration-300 underline-offset-2">
+              <span className="font-medium text-[#d63384] transition-colors duration-300 underline-offset-2">
                 Sendexa, LLC.
               </span>
               . All rights reserved.
@@ -242,7 +242,7 @@ export const ExaFooter = () => {
             >
               <p className="transition-all duration-300">
                 Built with <span className="text-red-500"> 💚</span> by{" "}
-                <span className="font-medium text-[#fcd116] group-hover:text-yellow-500 transition-colors duration-300">
+                <span className="font-medium text-[#d63384] group-hover:text-yellow-500 transition-colors duration-300">
                   Xtottel Ltd
                 </span>
               </p>
