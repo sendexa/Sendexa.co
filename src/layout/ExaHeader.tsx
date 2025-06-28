@@ -210,7 +210,7 @@ export function ExaHeader() {
             onClick={closeAllMenus}
           >
             <Image
-              src="/logos/sendexa-logo.png"
+              src="/logos/exaweb.png"
               width={170}
               height={50}
               alt="Sendexa Logo"
@@ -350,7 +350,7 @@ export function ExaHeader() {
           <div className="hidden lg:flex items-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                variant="outline"
+                variant="secondary"
                 className="gap-2"
                 onClick={() =>
                   (window.location.href = "https://app.sendexa.co/login")
@@ -417,7 +417,7 @@ export function ExaHeader() {
                   onClick={closeAllMenus}
                 >
                   <Image
-                    src="/logos/sendexa-logo.png"
+                    src="/logos/exaweb.png"
                     width={170}
                     height={50}
                     alt="Sendexa Logo"
@@ -537,7 +537,7 @@ export function ExaHeader() {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Button
-                      variant="outline"
+                      variant="secondary"
                       className="w-full gap-2"
                       onClick={() => {
                         closeAllMenus();
