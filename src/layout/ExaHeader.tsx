@@ -240,7 +240,7 @@ export function ExaHeader() {
                       href={item.href}
                       className={`relative px-4 py-2.5 text-sm font-medium transition-colors ${
                         pathname === item.href
-                          ? "text-[#a08721] dark:text-teal-400 font-semibold"
+                          ? "text-[#094a94] dark:text-teal-400 font-semibold"
                           : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                       }`}
                     >
@@ -286,8 +286,8 @@ export function ExaHeader() {
                                   href={subLink.href}
                                   className={`block p-3 rounded-lg transition-all ${
                                     subLink.cta
-                                      ? // ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500"
-                                        "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white hover:from-[#a08721]/90 hover:to-purple-500"
+                                      ? 
+                                        "bg-gradient-to-r from-[#094a94] to-[#f8971d] text-white hover:from-[#f8971d] hover:to-[#094a94]"
                                       : pathname === subLink.href
                                         ? "bg-blue-50 dark:bg-gray-800"
                                         : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
@@ -442,7 +442,7 @@ export function ExaHeader() {
                           href={item.href}
                           className={`text-base font-medium ${
                             pathname === item.href
-                              ? "text-[#a08721] dark:text-teal-400"
+                              ? "text-[#094a94] dark:text-teal-400"
                               : "text-gray-900 dark:text-white"
                           }`}
                           onClick={closeAllMenus}
@@ -482,7 +482,7 @@ export function ExaHeader() {
                                     href={subLink.href}
                                     className={`block p-3 rounded-lg transition-all ${
                                       subLink.cta
-                                        ? "bg-gradient-to-r from-[#a08721] to-[#16335c] text-white"
+                                        ? "bg-gradient-to-r from-[#094a94] to-[#f8971d] text-white"
                                         : pathname === subLink.href
                                           ? "bg-blue-50 dark:bg-gray-800"
                                           : "hover:bg-gray-100 dark:hover:bg-gray-800"
